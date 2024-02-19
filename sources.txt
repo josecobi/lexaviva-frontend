@@ -8,9 +8,11 @@ equivalent of SELECT DISTINCT(SQL) in Mongoose: https://mongoosejs.com/docs/api/
 fetch data useEffect: https://dev.to/antdp425/react-fetch-data-from-api-with-useeffect-27le
 
 
-
+Build forms in REACT: https://www.freecodecamp.org/news/how-to-build-forms-in-react/
 
 Select in REACT: https://react.dev/reference/react-dom/components/select#providing-a-label-for-a-select-box
+
+
   
 
 
