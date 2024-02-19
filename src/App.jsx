@@ -9,7 +9,7 @@ import Study from './pages/Study';
 import Topics from './pages/Topics';
 
 function App() {
-
+  
   return (
     <div className="App">
       <Nav />

@@ -1,2 +1,21 @@
 HERO SECTION : Photo by <a href="https://unsplash.com/@disruptxn?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Desola Lanre-Ologun</a> on <a href="https://unsplash.com/photos/man-in-grey-shirt-using-grey-laptop-computer-7d4LREDSPyQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+
+Documentation: 
+
+equivalent of SELECT DISTINCT(SQL) in Mongoose: https://mongoosejs.com/docs/api/model.html#Model.distinct()
+
+fetch data useEffect: https://dev.to/antdp425/react-fetch-data-from-api-with-useeffect-27le
+
+
+
+
+Select in REACT: https://react.dev/reference/react-dom/components/select#providing-a-label-for-a-select-box
   
+
+
+
+
+  //Comments:
+
+  If I have time I will add an 'alt' property to the images in the database.
