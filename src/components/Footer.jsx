@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="bg-body-tertiary text-center text-lg-start page-footer">
+    <div className="bg-body-tertiary text-center text-lg-start page-footer fixed-bottom">
       
     <div className="text-center p-3 bg-primary">
      Jose Lopez (CobiDev) © 2024 Copyright:

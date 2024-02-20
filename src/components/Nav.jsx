@@ -19,7 +19,7 @@ function Nav() {
             <a className="nav-link active" href="/practice">Practice</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link active" href="/topics">Your Topics</a>
+            <a className="nav-link active" href="/MyTopics">My Topics</a>
           </li>             
         </ul>
       </div>
