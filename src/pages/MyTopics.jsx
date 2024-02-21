@@ -1,25 +1,20 @@
 import { useState, useEffect } from 'react';
 import Topic from '../components/topics/Topic';
-import propTypes from "prop-types";
 import Table from '../components/topics/Table';
 import axios from 'axios';
 
-function Topics() {
+function MyTopics() {
   const [fetchedTopics, setFetchedTopics] = useState([]);
   const [fetchedData, setFetchedData] = useState([]);
 
-  const handleclick = (e) => {
-    e.preventDefault();
+  const handlechange = (e) => {
+   console.log("clicked: ", e.target.value);
 
-    console.log(e.target.textContent);
-
-    axios.post('http://localhost:5050/words/bytopic', { selectedTopic: e.target.textContent })
+    axios.post('http://localhost:5050/words/bytopic', { selectedTopic: e.target.value })
       .then(response => {
-        setFetchedData(response.data);
+        setFetchedData(response.data)
       })
-      .catch(error => {
-        console.error("Error:", error.message);
-      });
+      .catch(error => console.error("Error:", error.message));
   }
 
   useEffect(() => {
@@ -32,86 +27,22 @@ function Topics() {
   return (
     <div>
       <h3>Topics</h3>
-      <ul>
+      <select onChange={handlechange} name="topic" defaultValue="option1">
+          <option className='topic-option' value="option1" disabled>Select a topic</option>
       {fetchedTopics.map((topic, index) => { 
           return (
           
-          <Topic handleclick={handleclick} topic={topic} key={index} />
+          <Topic handleclick={handlechange} topic={topic} key={index} />
           
           ) 
       })}
-      </ul>
-      {console.log('fetched:', fetchedData)}
+      </select >
+
       <h3></h3>
       <Table  fetchedData={fetchedData}/>
     </div>
   )
 }
 
-export default Topics;
+export default MyTopics;
 
-// import { useState, useEffect } from 'react';
-// import Topic from '../components/topics/Topic';
-// import propTypes from "prop-types";
-// import Table from '../components/topics/Table';
-
-
-
-
-// function Topics() {
-//   const [fetchedTopics, setFetchedTopics] = useState([]);
-//   const [fetchedData, setFetchedData] = useState([]);
-
-//   //Handle click event on
-//   const handleclick = (e) => {
-//     //prevent page to refresh
-//     e.preventDefault();
-
-//     console.log(e.target.textContent);
-//     //fetch words by topic  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ASK QUESTION
-//     fetch('http://localhost:5050/words/bytopic', {
-//       method: "POST",
-//       mode: "cors",
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify({ selectedTopic: e.target.textContent })
-//     })
-//     .then(response => {
-//       if (!response.ok) throw new Error("Network response was not ok");
-//       return response.json();
-//     })
-//     .then(data => setFetchedData(data))
-//     .catch(error => console.error("Error:", error.message));
-    
-//   }
-//   //use 'useeffect' hook to fetch the topics. Added empty dependency array so it runs only once
-//   useEffect(() => {
-//     fetch('http://localhost:5050/words/topics')
-//       .then(response => {
-//         if(!response.ok) throw new Error("Network response was not ok");
-//         return response.json();
-//       })
-//       .then(data => setFetchedTopics(data))
-//   }, [])
-
-
-//   return (
-//     <div>
-//       <h3>Topics</h3>
-//       <ul>
-//       {fetchedTopics.map((topic, index) => { 
-//           return (
-          
-//           <Topic handleclick={handleclick} topic={topic} key={index} />
-          
-//           ) 
-//       })}
-//       </ul>
-//       {console.log('fetched:', fetchedData)}
-//       <h3></h3>
-//       <Table  fetchedData={fetchedData}/>
-//     </div>
-//   )
-// }
-
-
-// export default Topics;

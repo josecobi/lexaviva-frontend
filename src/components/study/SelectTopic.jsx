@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
+import axios from 'axios';
 
 function SelectTopic() {
     //set the state for the select menu and the data that will be fetched(vocab words data)
@@ -10,12 +11,8 @@ function SelectTopic() {
 
     // fetch the topics and reassign the response to the state 
     useEffect(() => {
-        fetch('http://localhost:5050/words/topics')
-            .then(response => {
-                if (!response.ok) throw new Error("Network response was not ok");
-                return response.json();
-            })
-            .then(data => setFetchedTopics(data))
+        axios.get('http://localhost:5050/words/topics')
+            .then(response => setFetchedTopics(response.data))
             .catch(error => console.error("Error:", error.message));
     }, []);//use empty dependency array to run just once
 
@@ -25,18 +22,12 @@ function SelectTopic() {
         setWordIndex(0);
         e.preventDefault();
         const selectedTopic = e.target.elements.topic.value;
-        fetch('http://localhost:5050/words/bytopic', {
-            method: "POST",
-            mode: "cors",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ selectedTopic })
-        })
-        .then(response => {
-            if (!response.ok) throw new Error("Network response was not ok");
-            return response.json();
-        })
+        axios.post('http://localhost:5050/words/bytopic', {
+            selectedTopic: selectedTopic})
         // reasign the value 
-        .then(data => setFetchedData(data))
+        .then(response => {
+            setFetchedData(response.data);
+        })     
         .catch(error => console.error("Error:", error.message));
     }
 
@@ -46,9 +37,9 @@ function SelectTopic() {
                 <label>
                     Pick a topic:
                     <select name="topic" defaultValue="option1">
-                        <option value="option1" disabled>Select a topic</option>
+                        <option className='topic-option' value="option1" disabled>Select a topic</option>
                         {fetchedTopics.map((topic, index) => (
-                            <option value={topic} key={index}>{topic}</option>
+                            <option className='topic-option' value={topic} key={index}>{topic}</option>
                         ))}
                     </select>
                 </label>

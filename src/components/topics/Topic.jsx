@@ -1,10 +1,10 @@
 import propTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+
 
 
 function Topic({topic, handleclick}){
     return (
-        <li onClick={handleclick} className='topic-list-item'>{topic}</li>
+        <option onClick={handleclick} className='topic-option'>{topic}</option>
     )
 
 }

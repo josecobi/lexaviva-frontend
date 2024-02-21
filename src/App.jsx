@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './index.css'
 import { Route, Routes } from "react-router-dom";
 import Nav from './components/Nav'
@@ -6,7 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Practice from './pages/Practice';
 import Study from './pages/Study';
-import Topics from './pages/MyTopics';
+import MyTopics from './pages/MyTopics';
 
 function App() {
   
@@ -17,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/study" element={<Study />} />
         <Route path="/practice" element={<Practice />} />
-        <Route path="/MyTopics" element={<Topics />} />
+        <Route path="/MyTopics" element={<MyTopics />} />
       </Routes>
       <Footer />     
     </div>

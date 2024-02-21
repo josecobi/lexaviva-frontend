@@ -1,6 +1,5 @@
 import propTypes from 'prop-types';
 import '../../index.css';
-import Button from './Button';
 
 
 function Word({word, imgUrl, attribution, english_word}) {
