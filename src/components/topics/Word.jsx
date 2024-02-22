@@ -2,7 +2,7 @@ import propTypes from 'prop-types';
 import '../../index.css';
 import axios from 'axios';
 
-
+// This component is used to display the words in the table
 function Word({document, updateData, fetchedData}) {
   return (
     <div>
@@ -36,7 +36,7 @@ function Word({document, updateData, fetchedData}) {
             </form>
     </div>
   )
-  
+  // function used to update the word
   async function handleSaveChanges(event, updateData, fetchedData) {
     event.preventDefault();
       const formdata = {
@@ -73,7 +73,7 @@ function Word({document, updateData, fetchedData}) {
     }
    
   }
-
+  // function used to remove the word
   async function handleRemoveWord(event, fetchedData, updateData) {
     
      try{
@@ -90,7 +90,7 @@ function Word({document, updateData, fetchedData}) {
      event.preventDefault();
   }
 }
-
+// define the prop types
 Word.propTypes = {
  document: propTypes.object.isRequired,
   selectedTopic: propTypes.string.isRequired,

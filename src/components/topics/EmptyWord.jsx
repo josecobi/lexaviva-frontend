@@ -2,7 +2,7 @@ import propTypes from 'prop-types';
 import '../../index.css';
 import axios from 'axios';
 
-
+// Component to add a new word
 function EmptyWord({document, updateData, fetchedData}) {
 
   return (
@@ -37,7 +37,7 @@ function EmptyWord({document, updateData, fetchedData}) {
             </form>
     </div>
   )
-  
+  // function used to save the new word
   async function handleSaveChanges(event) {
     event.preventDefault();
       const formdata = {

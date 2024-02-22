@@ -4,7 +4,7 @@ import Word from './Word';
 import EmptyWord from './EmptyWord';
 
 function Table({fetchedData, selectedTopic, updateData}) {
-    
+   //create an empty form to add a new word 
     const emptyForm = {
         word: "",
         imgUrl: "",
@@ -12,12 +12,12 @@ function Table({fetchedData, selectedTopic, updateData}) {
         english_word: "",
         topic: selectedTopic
     }
-
+    //if there is no data, return an empty div
     if(fetchedData.length === 0) {
         return <div></div>
     }
 
-    
+   //return the table with the words 
   return (
     <div className="container mt-3 border border-dark-subtle">
     <div className="row mt-3 mb-3 ">
@@ -30,6 +30,7 @@ function Table({fetchedData, selectedTopic, updateData}) {
         <div className="col"></div>
     </div>
     {fetchedData.map((document) => {
+        {/* Map the words */}
         return (
             <div key={document._id}>
                 <Word document={document} selectedTopic={selectedTopic} updateData={updateData} fetchedData={fetchedData}/>
@@ -39,6 +40,7 @@ function Table({fetchedData, selectedTopic, updateData}) {
     })}
   
     <div>
+        {/* Add a new word form */}
         <EmptyWord document={emptyForm} selectedTopic={selectedTopic} updateData={updateData} fetchedData={fetchedData}/>
     </div>
 

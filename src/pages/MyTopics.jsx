@@ -3,12 +3,11 @@ import Topic from '../components/topics/Topic';
 import Table from '../components/topics/Table';
 import axios from 'axios';
 
+//component to display the topics and terms
 function MyTopics() {
   const [fetchedTopics, setFetchedTopics] = useState([]);
   const [fetchedData, setFetchedData] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
-
-
 
   // update the state with the new data
   const updateData = (newData) => {
@@ -42,7 +41,7 @@ function MyTopics() {
 
   return (
     <div className="container text-center">
-
+        {/** Display the topics and terms when the topic is selected*/}
         <h4>My Topics</h4>
         <p>Check and edit your own topics and terms.</p>
         <div className="row justify-content-center mt-4">
@@ -60,6 +59,7 @@ function MyTopics() {
                 </select >
             </div >
         </div>
+        {/** Display the table with the words */}
         <div className="row justify-content-center mt-4">
         <h4>{selectedTopic}</h4>
         <Table  fetchedData={fetchedData} selectedTopic={selectedTopic} updateData={updateData}/>
