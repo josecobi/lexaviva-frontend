@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import '../../index.css';
 import axios from 'axios';
-
+import { useEffect } from 'react';
 // This component is used to display the words in the table
 function Word({document, updateData, fetchedData}) {
   return (
@@ -9,8 +9,9 @@ function Word({document, updateData, fetchedData}) {
       <form data-bs-theme="dark" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData)}className="row">   
                 <hr className="mt-2"/>            
                 <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
-                <input name="topic" className="form-control" type="hidden" defaultValue={document.topic}></input>
-
+                <div className="col">
+                <input name="topic" className="form-control" type="text" defaultValue={document.topic}></input>
+                </div>
                 <div className="col">
                     <input name="english_word" className="form-control" type="text" required defaultValue={document.english_word}></input>
                 </div>
@@ -75,20 +76,20 @@ function Word({document, updateData, fetchedData}) {
   }
   // function used to remove the word
   async function handleRemoveWord(event, fetchedData, updateData) {
-    
-     try{
-        console.log("event id:", event.target.value);    
-        await axios.delete(`http://localhost:5050/words/delete/${event.target.value}`);
-
-        // lift up the state so the word is removed from the list 
-        const wordsNotDeleted = fetchedData.filter(word => word._id !== event.target.value);
-        updateData(wordsNotDeleted);
-     }
-     catch(error){
-       console.error("Error:", error.message);
-     }
-     event.preventDefault();
+    try {
+      console.log("event id:", event.target.value);    
+      await axios.delete(`http://localhost:5050/words/delete/${event.target.value}`);
+  
+      // lift up the state so the word is removed from the list 
+      const wordsNotDeleted = fetchedData.filter(word => word && word._id !== event.target.value);
+      updateData(wordsNotDeleted);
+    }
+    catch(error) {
+      console.error("Error:", error.message);
+    }
+    event.preventDefault();
   }
+  
 }
 // define the prop types
 Word.propTypes = {

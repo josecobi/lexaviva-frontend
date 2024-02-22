@@ -21,6 +21,7 @@ function Table({fetchedData, selectedTopic, updateData}) {
   return (
     <div className="container mt-3 border border-dark-subtle">
     <div className="row mt-3 mb-3 ">
+        <div className="col">Topic*</div>
         <div className="col">English Word*</div>
         <div className="col">Word*</div>
         <div className="col">Image*</div>
@@ -29,15 +30,16 @@ function Table({fetchedData, selectedTopic, updateData}) {
         <div className="col"></div>
         <div className="col"></div>
     </div>
-    {fetchedData.map((document) => {
-        {/* Map the words */}
-        return (
-            <div key={document._id}>
-                <Word document={document} selectedTopic={selectedTopic} updateData={updateData} fetchedData={fetchedData}/>
-            </div>
-            
-        )
-    })}
+    {console.log("data fetechd in table: ", fetchedData)}
+    {fetchedData.filter(document => document !== null).map((document) => {
+    {/* Map the words */}
+    return (
+        <div key={document._id}>
+            <Word document={document} selectedTopic={selectedTopic} updateData={updateData} fetchedData={fetchedData}/>
+        </div>
+        
+    )
+})}
   
     <div>
         {/* Add a new word form */}

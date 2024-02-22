@@ -10,8 +10,9 @@ function EmptyWord({document, updateData, fetchedData}) {
       <form data-bs-theme="dark" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData)} className="row needs-validation" noValidate>   
                 <hr className="mt-2"/>            
                 <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
-                <input name="topic" className="form-control" type="hidden" defaultValue={document.topic}></input>
-
+                <div className="col">
+                <input name="topic" className="form-control" type="text" defaultValue={document.topic}></input>
+                </div>
                 <div className="col">
                     <input name="english_word" className="form-control" type="text" defaultValue={document.english_word} required></input>
                 </div>

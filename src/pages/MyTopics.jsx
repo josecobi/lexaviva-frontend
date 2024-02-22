@@ -43,7 +43,7 @@ function MyTopics() {
     <div className="container text-center">
         {/** Display the topics and terms when the topic is selected*/}
         <h4>My Topics</h4>
-        <p>Check and edit your own topics and terms.</p>
+        <p>Check and edit your own topics and terms. Edit the name of the topic if you want to create a new topic with that word.</p>
         <div className="row justify-content-center mt-4">
             <div className="col-4 dropdown">
                 <select className="form-select select"  aria-label="Select Topics" onChange={handlechange} name="topic" defaultValue="option1">
