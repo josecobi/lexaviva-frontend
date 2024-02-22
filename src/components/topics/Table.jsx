@@ -1,18 +1,15 @@
 import propTypes from 'prop-types';
-import axios from 'axios';
+import '../../index.css';
+import Word from './Word';
 
-function Table({fetchedData}) {
-  
-
-   
-
+function Table({fetchedData, selectedTopic, updateData}) {
 
     if(fetchedData.length === 0) {
         return <div></div>
     }
   return (
-    <div className="container">
-    <div className="row">
+    <div className="container mt-3">
+    <div className="row mt-3 mb-3">
         <div className="col">English Word</div>
         <div className="col">Word</div>
         <div className="col">Image</div>
@@ -21,73 +18,22 @@ function Table({fetchedData}) {
         <div className="col"></div>
         <div className="col"></div>
     </div>
-    {fetchedData.map((document, index) => {
+    {fetchedData.map((document) => {
         return (
-            <form onSubmit={handleSubmit} key={index} className="row">               
-                <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
-                <input name="topic" className="form-control" type="hidden" defaultValue={document.topic}></input>
-
-                <div className="col">
-                    <input name="english_word" className="form-control" type="text" defaultValue={document.english_word}></input>
-                </div>
-                <div className="col">
-                    <input name="word" className="form-control" type="text" defaultValue={document.word}></input>
-                </div>
-                <div className="col">
-                    <img className="thumbnail" src={document.imgUrl}></img>
-                </div>
-                <div className="col">
-                    <input name="imgUrl" className="form-control" type="text" defaultValue={document.imgUrl}></input>
-                </div>
-                <div className="col">
-                    <input name="attribution" className="form-control" type="text" defaultValue={document.attribution}></input>
-                </div>
-                <div className="col">
-                    <button onClick={handleRemove} value={document._id} className="btn btn-danger">Remove</button>
-                </div>
-                <div className="col">
-                    <button  type="submit" className="btn btn-success">Save</button>
-                </div>
-                <hr />
-            </form>
+            <div key={document._id}>
+                <Word document={document} selectedTopic={selectedTopic} updateData={updateData} fetchedData={fetchedData}/>
+            
+            </div>
             
         )
     })}
 </div>
   )
-
-  function handleSubmit(event) {
-    event.preventDefault();
-      const formdata = {
-          _id: event.target.id.value,
-          word: event.target.word.value,
-          imgUrl: event.target.imgUrl.value,
-          attribution: event.target.attribution.value,
-          english_word: event.target.english_word.value,
-          topic: event.target.topic.value,
-
-      }
-      console.log("event id:", event.target.id.value);
-      console.log("save this data:", formdata);
-      axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
-   
-  }
-
-  function handleRemove(event) {
-    
-     try{
-      console.log("event id:", event.target.value);
-  
-      axios.delete(`http://localhost:5050/words/delete/${event.target.value}`);
-     }
-     catch(error){
-       console.error("Error:", error.message);
-     }
-     event.preventDefault();
-  }
 }
 
 Table.propTypes = {
   fetchedData: propTypes.array.isRequired,
+  selectedTopic: propTypes.string.isRequired,
+    updateData: propTypes.func.isRequired
 }
 export default Table

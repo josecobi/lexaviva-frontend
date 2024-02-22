@@ -17,12 +17,12 @@ function SelectTopic() {
     }, []);//use empty dependency array to run just once
 
     // handle event when submit button is clicked
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         //counter for the words to display in the card
         setWordIndex(0);
         e.preventDefault();
         const selectedTopic = e.target.elements.topic.value;
-        axios.post('http://localhost:5050/words/bytopic', {
+        await axios.post('http://localhost:5050/words/bytopic', {
             selectedTopic: selectedTopic})
         // reasign the value 
         .then(response => {
@@ -32,23 +32,25 @@ function SelectTopic() {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Pick a topic:
-                    <select name="topic" defaultValue="option1">
-                        <option className='topic-option' value="option1" disabled>Select a topic</option>
-                        {fetchedTopics.map((topic, index) => (
-                            <option className='topic-option' value={topic} key={index}>{topic}</option>
-                        ))}
-                    </select>
-                </label>
-                <hr />
-                <button type="submit">Start Learning</button>
-            </form>
+        <div className="mt-3 container text-center">
+            <div className="row justify-content-center mt-2">
+                <div className="col-4 dropdown">
+                    <form onSubmit={handleSubmit}>
+                            <select className="form-select select mb-2"  aria-label="Select Topics" name="topic" defaultValue="option1">
+                                <option className='topic-option' value="option1" disabled>Select a topic</option>
+                                {fetchedTopics.map((topic, index) => (
+                                    <option className='topic-option' value={topic} key={index}>{topic}</option>
+                                ))}
+                            </select>
+
+                        <br />
+                        <button className="btn btn-success" type="submit">Start Learning</button>
+                    </form>
+                </div>
+            </div>
             {/* check both fetchedData and fetchedData[wordIndex] to see they aren't empty. If not, display card for the first element*/}
             {fetchedData && fetchedData[wordIndex] && (
-                <div>
+                <div className="container">
                     
                     <Card
                         word={fetchedData[wordIndex].word}
@@ -57,9 +59,11 @@ function SelectTopic() {
                         english_word={fetchedData[wordIndex].english_word}
                         
                     />
+                 
                     {/* Use buttons to change the state of the wordIndex to render previous or next images */}
-                    <button onClick={() => setWordIndex(wordIndex - 1)}>Previous Word</button>
-                    <button onClick={() => setWordIndex(wordIndex + 1)}>Next Word</button>
+                    <button className="btn btn-dark d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex - 1)}>Previous Word</button>
+                    <button className="btn btn-dark d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex + 1)}>Next Word</button>
+                    
                 </div>
             )}
         </div>

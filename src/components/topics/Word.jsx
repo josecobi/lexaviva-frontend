@@ -1,25 +1,100 @@
 import propTypes from 'prop-types';
 import '../../index.css';
+import axios from 'axios';
 
 
-function Word({word, imgUrl, attribution, english_word}) {
+function Word({document, updateData, fetchedData}) {
+    console.log("fetchedData inside Word:", fetchedData);
   return (
     <div>
-        {console.log("WORD:", word, imgUrl, attribution, english_word)}
-        <form>{word}</form>
-        <form>{imgUrl}</form>
-        <form>{attribution}</form>
-        <form>{english_word}</form>
-        {/* <Button text={"update"} />
-        <Button text={"delete"} /> */}
+      <form data-bs-theme="dark" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData)}className="row">               
+                <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
+                <input name="topic" className="form-control" type="hidden" defaultValue={document.topic}></input>
+
+                <div className="col">
+                    <input name="english_word" className="form-control" type="text" defaultValue={document.english_word}></input>
+                </div>
+                <div className="col">
+                    <input name="word" className="form-control" type="text" defaultValue={document.word}></input>
+                </div>
+                <div className="col">
+                    <img className="thumbnail" src={document.imgUrl}></img>
+                </div>
+                <div className="col">
+                    <input name="imgUrl" className="form-control" type="text" defaultValue={document.imgUrl}></input>
+                </div>
+                <div className="col">
+                    <input name="attribution" className="form-control" type="text" defaultValue={document.attribution}></input>
+                </div>
+                <div className="col">
+                    <button onClick={(event) => handleRemoveWord(event, fetchedData, updateData)} value={document._id} className="btn btn-danger">Remove</button>
+                </div>
+                <div className="col">
+                    <button  type="submit" className="btn btn-success">Save</button>
+                </div>
+                <hr className="mt-2"/>
+            </form>
     </div>
   )
+  
+  async function handleSaveChanges(event, updateData, fetchedData) {
+    event.preventDefault();
+      const formdata = {
+          _id: event.target.id.value,
+          word: event.target.word.value,
+          imgUrl: event.target.imgUrl.value,
+          attribution: event.target.attribution.value,
+          english_word: event.target.english_word.value,
+          topic: event.target.topic.value,
+
+      }
+      console.log("event id:", event.target.id.value);
+      console.log("save this data:", formdata);
+      try{
+        // update the word
+        const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
+        // log the updated word
+        console.log(response.data);
+        console.log("fetech data inside handleSaveChanges:", fetchedData)
+        // Find the index of the object with the given id
+        const indexOfModifiedWord = fetchedData.findIndex(word => word._id === event.target.id.value);
+
+        //create a copy of fetchedData
+        const newData = [...fetchedData];
+
+        //replace the object at the found index with the updated object
+        newData[indexOfModifiedWord] = response.data;
+
+        // lift up the state so the word is updated in the list
+        updateData(newData);
+    }
+    catch(error){
+      console.error("Error:", error.message);
+    }
+   
+  }
+
+  async function handleRemoveWord(event, fetchedData, updateData) {
+    
+     try{
+        console.log("event id:", event.target.value);    
+        await axios.delete(`http://localhost:5050/words/delete/${event.target.value}`);
+
+        // lift up the state so the word is removed from the list 
+        const wordsNotDeleted = fetchedData.filter(word => word._id !== event.target.value);
+        updateData(wordsNotDeleted);
+     }
+     catch(error){
+       console.error("Error:", error.message);
+     }
+     event.preventDefault();
+  }
 }
 
 Word.propTypes = {
-  word: propTypes.string.isRequired,
-  imgUrl: propTypes.string.isRequired,
-  attribution: propTypes.string.isRequired,
-  english_word: propTypes.string.isRequired,
+ document: propTypes.object.isRequired,
+  selectedTopic: propTypes.string.isRequired,
+  updateData: propTypes.func.isRequired,
+  fetchedData: propTypes.array.isRequired
 }
 export default Word

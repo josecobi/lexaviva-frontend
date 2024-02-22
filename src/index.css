@@ -1,10 +1,16 @@
-body{
+body {
   margin-bottom: 5rem;
+  background-color: rgb(7, 7, 130);
+  background-image: var(--bs-gradient);
+  color: rgb(255, 255, 255);
+  min-height: 100vh;
 } 
+
+
 .hero-image {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url("assets/student-laptop.jpg");
+  background-image: var(--bs-gradient), url("assets/student-laptop.jpg");
   background-color: darkblue;
   padding: 10vw 0;
   height: 100vh; 
@@ -17,9 +23,9 @@ body{
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
   background-color: transparent;
-  width: 15rem;
+  width: 20rem;
   height: 20rem;
-  border: 1px solid #f1f1f1;
+
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   
 }
@@ -32,8 +38,6 @@ body{
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-
-
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -55,41 +59,60 @@ body{
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
   padding-top: 2rem;
-  background-color: dodgerblue;
-  color: black;
+  background-color: rgb(18, 18, 60);
+  /* background-image: var(--bs-gradient); */
+  color: rgb(255, 255, 255)
+
 
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
-  color: white;
+  background-color:rgb(18, 18, 60);
+  color:rgb(255, 255, 255);
   transform: rotateY(180deg);
   
 
 }
 
-footer {
-  position: absolute;
-  height: 100px;
-  bottom: 0;
-  width: 100%;
-}
-
-.topic-option{
-  list-style-type: none;
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 15px;
-  background-color: dodgerblue;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  max-width: 15rem;
-}
 
 .thumbnail {
   width: 90%;
   height: 90%;
+  max-height: 100px;
+  max-width: 100px;
   border-radius: 15px;
+}
+
+input {
+  background-color: rgb(18, 18, 60);
+  background-image: var(--bs-gradient);
+}
+
+
+
+.form-control {
+  background-color: rgb(18, 18, 60);
+  background-image: var(--bs-gradient);
+}
+
+.form-control:focus {
+  background-color: rgb(18, 18, 60);
+  background-image: var(--bs-gradient);
+} 
+
+.select {
+  background-color: rgb(203, 203, 203)
+  
+}
+
+.btn-dark {
+  background-color: rgb(18, 18, 60);
+
+  border-color: rgb(18, 18, 60);
+}
+
+.bg-light {
+  --bs-bg-opacity: 0.5 !important;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
