@@ -8,11 +8,14 @@ function MyTopics() {
   const [fetchedData, setFetchedData] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
 
+
+
   // update the state with the new data
   const updateData = (newData) => {
     
     setFetchedData(newData);
   } 
+
   // handle event when a topic is selected
   const handlechange = (e) => {
    console.log("clicked: ", e.target.value);
@@ -37,7 +40,6 @@ function MyTopics() {
     fetchData();
   }, [])
 
-  // return the topics and the table
   return (
     <div className="container text-center">
 
@@ -64,7 +66,7 @@ function MyTopics() {
         </div>
     </div>
   )
-}
+ }
 
 export default MyTopics;
 

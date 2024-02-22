@@ -4,15 +4,15 @@ import axios from 'axios';
 
 
 function Word({document, updateData, fetchedData}) {
-    console.log("fetchedData inside Word:", fetchedData);
   return (
     <div>
-      <form data-bs-theme="dark" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData)}className="row">               
+      <form data-bs-theme="dark" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData)}className="row">   
+                <hr className="mt-2"/>            
                 <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
                 <input name="topic" className="form-control" type="hidden" defaultValue={document.topic}></input>
 
                 <div className="col">
-                    <input name="english_word" className="form-control" type="text" defaultValue={document.english_word}></input>
+                    <input name="english_word" className="form-control" type="text" required defaultValue={document.english_word}></input>
                 </div>
                 <div className="col">
                     <input name="word" className="form-control" type="text" defaultValue={document.word}></input>
@@ -32,7 +32,7 @@ function Word({document, updateData, fetchedData}) {
                 <div className="col">
                     <button  type="submit" className="btn btn-success">Save</button>
                 </div>
-                <hr className="mt-2"/>
+                
             </form>
     </div>
   )

@@ -16,7 +16,7 @@ function Nav() {
             <a className="nav-link active" href="/study">Study</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link active" href="/practice">Practice</a>
+            <a className="nav-link active" href="/about">About</a>
           </li>
           <li className="nav-item">
             <a className="nav-link active" href="/MyTopics">My Topics</a>
