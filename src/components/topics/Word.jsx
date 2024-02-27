@@ -78,7 +78,7 @@ function Word({document, updateData, fetchedData}) {
   async function handleRemoveWord(event, fetchedData, updateData) {
     try {
       console.log("event id:", event.target.value);    
-      await axios.delete(`https://lexaviva.onrender.com/words/delete/${event.target.value}`);
+      await axios.delete(`https://lexaviva-backend.onrender.com/words/delete/${event.target.value}`);
   
       // lift up the state so the word is removed from the list 
       const wordsNotDeleted = fetchedData.filter(word => word && word._id !== event.target.value);
