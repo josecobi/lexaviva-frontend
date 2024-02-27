@@ -53,10 +53,10 @@ function Word({document, updateData, fetchedData}) {
       console.log("save this data:", formdata);
       try{
         // update the word
-        const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
+        const response = await axios.put(`https://lexaviva.onrender.com/words/update/${event.target.id.value}`, formdata);
         // log the updated word
         console.log(response.data);
-        console.log("fetech data inside handleSaveChanges:", fetchedData)
+        console.log("fetched data inside handleSaveChanges:", fetchedData)
         // Find the index of the object with the given id
         const indexOfModifiedWord = fetchedData.findIndex(word => word._id === event.target.id.value);
 
@@ -78,7 +78,7 @@ function Word({document, updateData, fetchedData}) {
   async function handleRemoveWord(event, fetchedData, updateData) {
     try {
       console.log("event id:", event.target.value);    
-      await axios.delete(`http://localhost:5050/words/delete/${event.target.value}`);
+      await axios.delete(`https://lexaviva.onrender.com/words/delete/${event.target.value}`);
   
       // lift up the state so the word is removed from the list 
       const wordsNotDeleted = fetchedData.filter(word => word && word._id !== event.target.value);

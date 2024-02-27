@@ -11,7 +11,7 @@ function SelectTopic() {
 
     // fetch the topics and reassign the response to the state 
     useEffect(() => {
-        axios.get('http://localhost:5050/words/topics')
+        axios.get('https://lexaviva.onrender.com/words/topics')
             .then(response => setFetchedTopics(response.data))
             .catch(error => console.error("Error:", error.message));
     }, []);//use empty dependency array to run just once
@@ -22,7 +22,7 @@ function SelectTopic() {
         setWordIndex(0);
         e.preventDefault();
         const selectedTopic = e.target.elements.topic.value;
-        await axios.post('http://localhost:5050/words/bytopic', {
+        await axios.post('https://lexaviva.onrender.com/words/bytopic', {
             selectedTopic: selectedTopic})
         // reasign the value 
         .then(response => {

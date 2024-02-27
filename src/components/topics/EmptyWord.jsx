@@ -53,7 +53,7 @@ function EmptyWord({document, updateData, fetchedData}) {
       console.log("Trying to save this data:", formdata);
       try{
         // Save the new word into the database word
-        const response = await axios.post(`http://localhost:5050/words`, formdata);
+        const response = await axios.post(`https://lexaviva.onrender.com/words`, formdata);
         // log the updated word
         console.log(response.data);
         updateData(prevData => [...prevData, response.data]);
