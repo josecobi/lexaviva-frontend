@@ -5,6 +5,16 @@ LexaViva Frontend Overview
 The LexaViva frontend is built using React, a popular JavaScript library for building user interfaces. It leverages React Hooks for state management and utilizes React Router for handling navigation within the application. Below is an overview of how hooks, routes, and component structure are used in the LexaViva frontend.
 
 Find information about LexaViva's backend here: https://github.com/josecobi/lexaviva-backend/blob/main/README.md
+![Screenshot 2024-02-22 233703](https://github.com/josecobi/lexaviva-frontend/assets/58313777/2789ea1b-73ef-4f2d-a2a6-9e0865c9b4a9)
+
+![Screenshot 2024-02-22 233757](https://github.com/josecobi/lexaviva-frontend/assets/58313777/ecc086f0-0dbe-4beb-922a-7e2d6f800bfc)
+
+![Screenshot 2024-02-22 233812](https://github.com/josecobi/lexaviva-frontend/assets/58313777/d8f8730f-0be3-4134-ab3c-bc3e3e361acf)
+
+![Screenshot 2024-02-22 233835](https://github.com/josecobi/lexaviva-frontend/assets/58313777/b4f7cac9-527c-4238-9010-46fc9213a44b)
+
+
+
 
 ## React Hooks Usage
 ### useState Hook
