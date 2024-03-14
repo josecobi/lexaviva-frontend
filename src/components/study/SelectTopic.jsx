@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
 import axios from 'axios';
+import Spinner from '../../Spinner';
+
 
 function SelectTopic() {
     //set the state for the select menu and the data that will be fetched(vocab words data)
@@ -8,6 +10,8 @@ function SelectTopic() {
     const [fetchedData, setFetchedData] = useState([]);
     // const [selectedTopic, setSelectedTopic] = useState('option1');
     const [wordIndex, setWordIndex] = useState(0);
+    // State of the button
+    const [buttonIsClicked, setButtonIsClicked] = useState(false);
 
     // fetch the topics and reassign the response to the state 
     useEffect(() => {
@@ -35,21 +39,27 @@ function SelectTopic() {
         <div className="mt-3 container text-center">
             <div className="row justify-content-center mt-2">
                 <div className="col-4 dropdown">
-                    <form onSubmit={handleSubmit}>
-                            <select className="form-select select mb-2"  aria-label="Select Topics" name="topic" defaultValue="option1">
-                                <option className='topic-option' value="option1" disabled>Select a topic</option>
-                                {fetchedTopics.map((topic, index) => (
-                                    <option className='topic-option' value={topic} key={index}>{topic}</option>
-                                ))}
-                            </select>
+                    {// show the spinner while the data is being fetched
+                        fetchedTopics.length === 0 ? <Spinner /> :
+                            <form onSubmit={handleSubmit}>
+                                    <select className="form-select select mb-2"  aria-label="Select Topics" name="topic" defaultValue="option1">
+                                        <option className='topic-option' value="option1" disabled>Select a topic</option>
+                                        {fetchedTopics.map((topic, index) => (
+                                            <option className='topic-option' value={topic} key={index}>{topic}</option>
+                                        ))}
+                                    </select>
 
-                        <br />
-                        <button className="btn btn-success" type="submit">Start Learning</button>
-                    </form>
+                                <br />
+                                <button className="btn btn-success" type="submit">Start Learning</button>
+                            </form>}
                 </div>
             </div>
             {/* check both fetchedData and fetchedData[wordIndex] to see they aren't empty. If not, display card for the first element*/}
-            {fetchedData && fetchedData[wordIndex] && (
+            {  // show the spinner while the data is being fetched
+                buttonIsClicked && !fetchedData && !fetchedData[wordIndex] ? <Spinner /> :
+            
+            fetchedData && fetchedData[wordIndex] && (
+                
                 <div className="container">
                     
                     <Card

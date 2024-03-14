@@ -60,7 +60,7 @@ body {
 .flip-card-front {
   padding-top: 2rem;
   background-color: rgb(18, 18, 60);
-  /* background-image: var(--bs-gradient); */
+  background-image: var(--bs-gradient-);
   color: rgb(255, 255, 255)
 
 
@@ -68,7 +68,8 @@ body {
 
 /* Style the back side */
 .flip-card-back {
-  background-color:rgb(18, 18, 60);
+  background-color:rgb(24, 24, 66);
+  background-image: var(--bs-gradient);
   color:rgb(255, 255, 255);
   transform: rotateY(180deg);
   
@@ -85,20 +86,24 @@ body {
 }
 
 input {
-  background-color: rgb(18, 18, 60);
+  background-color: rgb(203, 203, 203);
   background-image: var(--bs-gradient);
+  color: black;
+  border-color: rgb(203, 203, 203);
 }
 
 
 
 .form-control {
-  background-color: rgb(18, 18, 60);
+  background-color: rgb(203, 203, 203);
   background-image: var(--bs-gradient);
+  color: black;
 }
 
 .form-control:focus {
-  background-color: rgb(18, 18, 60);
+  background-color: rgb(203, 203, 203);
   background-image: var(--bs-gradient);
+  color: black;
 } 
 
 .select {
@@ -115,4 +120,11 @@ input {
 .bg-light {
   --bs-bg-opacity: 0.5 !important;
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.form-select {
+  background-color: rgb(233, 231, 231);
+  background-image: var(--bs-gradient);
+  color: black;
+  border-color: rgb(203, 203, 203);
 }

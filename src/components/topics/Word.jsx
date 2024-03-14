@@ -77,12 +77,19 @@ function Word({document, updateData, fetchedData}) {
   // function used to remove the word
   async function handleRemoveWord(event, fetchedData, updateData) {
     try {
-      console.log("event id:", event.target.value);    
-      await axios.delete(`https://lexaviva-backend.onrender.com/words/delete/${event.target.value}`);
+      console.log("event id:", event.target.value);
+      // alert the user to confirm the deletion
+      if (!window.confirm("Are you sure you want to delete this word?")) {
+        return;
+      }
+      else {
+        await axios.delete(`https://lexaviva-backend.onrender.com/words/delete/${event.target.value}`);
   
-      // lift up the state so the word is removed from the list 
-      const wordsNotDeleted = fetchedData.filter(word => word && word._id !== event.target.value);
-      updateData(wordsNotDeleted);
+        // lift up the state so the word is removed from the list 
+        const wordsNotDeleted = fetchedData.filter(word => word && word._id !== event.target.value);
+        updateData(wordsNotDeleted);
+      }    
+   
     }
     catch(error) {
       console.error("Error:", error.message);
