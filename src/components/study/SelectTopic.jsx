@@ -55,8 +55,7 @@ function SelectTopic() {
                 </div>
             </div>
             {/* check both fetchedData and fetchedData[wordIndex] to see they aren't empty. If not, display card for the first element*/}
-            {  // show the spinner while the data is being fetched
-                buttonIsClicked && !fetchedData && !fetchedData[wordIndex] ? <Spinner /> :
+            {  
             
             fetchedData && fetchedData[wordIndex] && (
                 
@@ -72,8 +71,7 @@ function SelectTopic() {
                  
                     {/* Use buttons to change the state of the wordIndex to render previous or next images */}
                     <button className="btn btn-dark d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex - 1)}>Previous Word</button>
-                    <button className="btn btn-dark d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex + 1)}>Next Word</button>
-                    
+                    <button className="btn btn-dark d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex + 1)}>Next Word</button>                    
                 </div>
             )}
         </div>

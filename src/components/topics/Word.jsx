@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import '../../index.css';
 import axios from 'axios';
-import { useEffect } from 'react';
+
 // This component is used to display the words in the table
 function Word({document, updateData, fetchedData}) {
   return (
@@ -53,6 +53,7 @@ function Word({document, updateData, fetchedData}) {
       console.log("save this data:", formdata);
       try{
         // update the word
+        // const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
         const response = await axios.put(`https://lexaviva.onrender.com/words/update/${event.target.id.value}`, formdata);
         // log the updated word
         console.log(response.data);
