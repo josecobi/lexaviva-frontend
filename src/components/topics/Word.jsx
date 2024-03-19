@@ -53,13 +53,13 @@ function Word({document, updateData, fetchedData}) {
       console.log("save this data:", formdata);
       try{
         // update the word
-        // const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
-        const response = await axios.put(`https://lexaviva.onrender.com/words/update/${event.target.id.value}`, formdata);
+        const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
+        // const response = await axios.put(`https://lexaviva.onrender.com/words/update/${event.target.id.value}`, formdata);
         // log the updated word
         console.log(response.data);
         console.log("fetched data inside handleSaveChanges:", fetchedData)
         // Find the index of the object with the given id
-        const indexOfModifiedWord = fetchedData.findIndex(word => word._id === event.target.id.value);
+        const indexOfModifiedWord = await fetchedData.findIndex(word => word._id === event.target.id.value);
 
         //create a copy of fetchedData
         const newData = [...fetchedData];
