@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import '../../index.css';
 import axios from 'axios';
-import { useEffect } from 'react';
+
 // This component is used to display the words in the table
 function Word({document, updateData, fetchedData}) {
   return (
@@ -53,6 +53,7 @@ function Word({document, updateData, fetchedData}) {
       console.log("save this data:", formdata);
       try{
         // update the word
+        // const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
         const response = await axios.put(`https://lexaviva.onrender.com/words/update/${event.target.id.value}`, formdata);
         // log the updated word
         console.log(response.data);
@@ -77,12 +78,19 @@ function Word({document, updateData, fetchedData}) {
   // function used to remove the word
   async function handleRemoveWord(event, fetchedData, updateData) {
     try {
-      console.log("event id:", event.target.value);    
-      await axios.delete(`https://lexaviva-backend.onrender.com/words/delete/${event.target.value}`);
+      console.log("event id:", event.target.value);
+      // alert the user to confirm the deletion
+      if (!window.confirm("Are you sure you want to delete this word?")) {
+        return;
+      }
+      else {
+        await axios.delete(`https://lexaviva-backend.onrender.com/words/delete/${event.target.value}`);
   
-      // lift up the state so the word is removed from the list 
-      const wordsNotDeleted = fetchedData.filter(word => word && word._id !== event.target.value);
-      updateData(wordsNotDeleted);
+        // lift up the state so the word is removed from the list 
+        const wordsNotDeleted = fetchedData.filter(word => word && word._id !== event.target.value);
+        updateData(wordsNotDeleted);
+      }    
+   
     }
     catch(error) {
       console.error("Error:", error.message);

@@ -19,7 +19,7 @@ function Table({fetchedData, selectedTopic, updateData}) {
 
    //return the table with the words 
   return (
-    <div className="container mt-3 border border-dark-subtle">
+    <div className="container mt-3 border border-dark-subtle rounded">
     <div className="row mt-3 mb-3 ">
         <div className="col">Topic*</div>
         <div className="col">English Word*</div>
@@ -36,8 +36,7 @@ function Table({fetchedData, selectedTopic, updateData}) {
     return (
         <div key={document._id}>
             <Word document={document} selectedTopic={selectedTopic} updateData={updateData} fetchedData={fetchedData}/>
-        </div>
-        
+        </div>        
     )
 })}
   

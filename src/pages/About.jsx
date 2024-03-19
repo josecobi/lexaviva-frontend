@@ -1,9 +1,9 @@
 function About() {
   return (
-    <div className="about container ">
-      <h1>Welcome to Lexaviva </h1>
-      <h4> Your Gateway to Spanish Vocabulary Mastery!</h4>
-
+    <div className="about container text-bg-light">
+      <h1>Welcome to Lexaviva </h1>      
+      <p> Your Gateway to Spanish Vocabulary Mastery!</p>
+      <hr/>
       <h5>Our Mission:</h5>
       <p>Lexaviva is on a mission to make learning Spanish vocabulary not only effective but also enjoyable. We understand that everyone has their own pace and learning style, and our app is designed to cater to those individual needs.</p>
       <h5>Create Your Own Flashcards:</h5>
