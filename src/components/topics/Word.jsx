@@ -5,7 +5,7 @@ import axios from 'axios';
 // This component is used to display the words in the table
 function Word({document, updateData, fetchedData}) {
   return (
-    <div>
+    <>
       <form data-bs-theme="dark" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData)}className="row">   
                 <hr className="mt-2"/>            
                 <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
@@ -35,12 +35,14 @@ function Word({document, updateData, fetchedData}) {
                 </div>
                 
             </form>
-    </div>
+    </>
   )
   // function used to update the word
   async function handleSaveChanges(event, updateData, fetchedData) {
     event.preventDefault();
-      const formdata = {
+      
+      try{
+        const formdata = {
           _id: event.target.id.value,
           word: event.target.word.value,
           imgUrl: event.target.imgUrl.value,
@@ -51,15 +53,15 @@ function Word({document, updateData, fetchedData}) {
       }
       console.log("event id:", event.target.id.value);
       console.log("save this data:", formdata);
-      try{
         // update the word
-        const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
-        // const response = await axios.put(`https://lexaviva.onrender.com/words/update/${event.target.id.value}`, formdata);
+        // const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
+        // const response = await axios.put(`https://lexaviva-backend.vercel.app//words/update/${event.target.id.value}`, formdata);
+        const response = await axios.put(`https://lexaviva-backend.onrender.com/words/update/${event.target.id.value}`, formdata);
         // log the updated word
-        console.log(response.data);
+        console.log("response data should be the updated word: ", response.data);
         console.log("fetched data inside handleSaveChanges:", fetchedData)
         // Find the index of the object with the given id
-        const indexOfModifiedWord = await fetchedData.findIndex(word => word._id === event.target.id.value);
+        const indexOfModifiedWord = fetchedData.findIndex(word => word._id === event.target.id.value);
 
         //create a copy of fetchedData
         const newData = [...fetchedData];
@@ -69,10 +71,10 @@ function Word({document, updateData, fetchedData}) {
 
         // lift up the state so the word is updated in the list
         updateData(newData);
-    }
-    catch(error){
-      console.error("Error:", error.message);
-    }
+      } 
+      catch(error){
+        console.error("Error:", error.message);
+      }
    
   }
   // function used to remove the word
