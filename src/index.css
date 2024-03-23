@@ -122,9 +122,9 @@ input {
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
 
-.form-select {
+/* .form-select {
   background-color: rgb(233, 231, 231);
   background-image: var(--bs-gradient);
   color: black;
   border-color: rgb(203, 203, 203);
-}
+} */
