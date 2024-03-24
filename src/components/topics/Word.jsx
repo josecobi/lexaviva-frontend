@@ -55,8 +55,8 @@ function Word({document, updateData, fetchedData}) {
       console.log("save this data:", formdata);
         // update the word
         // const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
-        const response = await axios.put(`https://lexaviva-backend.vercel.app/words/update/${event.target.id.value}`, formdata);
-        // const response = await axios.put(`https://lexaviva-backend.onrender.com/words/update/${event.target.id.value}`, formdata);
+        // const response = await axios.put(`https://lexaviva-backend.vercel.app/words/update/${event.target.id.value}`, formdata);
+        const response = await axios.put(`https://lexaviva-backend.onrender.com/words/update/${event.target.id.value}`, formdata);
         // log the updated word
         console.log("response data should be the updated word: ", response.data);
         console.log("fetched data inside handleSaveChanges:", fetchedData)
@@ -86,8 +86,8 @@ function Word({document, updateData, fetchedData}) {
         return;
       }
       else {
-        // await axios.delete(`https://lexaviva-backend.onrender.com/words/delete/${event.target.value}`);
-        await axios.delete(`https://lexaviva-backend.vercel.app/words/delete/${event.target.value}`);
+        await axios.delete(`https://lexaviva-backend.onrender.com/words/delete/${event.target.value}`);
+        // await axios.delete(`https://lexaviva-backend.vercel.app/words/delete/${event.target.value}`);
   
         // lift up the state so the word is removed from the list 
         const wordsNotDeleted = fetchedData.filter(word => word && word._id !== event.target.value);
