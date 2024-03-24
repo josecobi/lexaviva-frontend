@@ -15,7 +15,9 @@ function SelectTopic() {
 
     // fetch the topics and reassign the response to the state 
     useEffect(() => {
-        axios.get('https://lexaviva-backend.onrender.com/words/topics')
+        axios.get('https://lexaviva-backend.vercel.app/words/topics')
+        // axios.get('http://127.0.0.1:5050/words/topics')
+        // axios.get('https://lexaviva-backend.onrender.com/words/topics')
             .then(response => setFetchedTopics(response.data))
             .catch(error => console.error("Error:", error.message));
     }, []);//use empty dependency array to run just once
@@ -26,8 +28,10 @@ function SelectTopic() {
         setWordIndex(0);
         e.preventDefault();
         const selectedTopic = e.target.elements.topic.value;
-        await axios.post('https://lexaviva-backend.onrender.com/words/bytopic', {
-            selectedTopic: selectedTopic})
+        await axios.post('https://lexaviva-backend.vercel.app/words/bytopic', { selectedTopic: selectedTopic })
+        // await axios.post('http://127.0.0.1:5050/words/bytopic', { selectedTopic: selectedTopic })
+            // await axios.post('https://lexaviva-backend.onrender.com/words/bytopic', {
+            // selectedTopic: selectedTopic})
         // reasign the value 
         .then(response => {
             setFetchedData(response.data);

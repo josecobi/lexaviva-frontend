@@ -23,8 +23,9 @@ function MyTopics() {
   const handlechange = (e) => {
    console.log("clicked: ", e.target.value);
     setSelectedTopic(e.target.value);
-    // axios.post('http://127.0.0.1:5050/words/bytopic', { selectedTopic: e.target.value })
-    axios.post('https://lexaviva-backend.onrender.com/words/bytopic', { selectedTopic: e.target.value })
+    axios.post('https://lexaviva-backend.vercel.app/words/bytopic', { selectedTopic: e.target.value })
+    // axios.post('https://lexaviva-backend.onrender.com/words/bytopic', { selectedTopic: e.target.value })
+    // axios.post('https://lexaviva-backend.onrender.com/words/bytopic', { selectedTopic: e.target.value })
       .then(response => {
         setFetchedData(response.data)
       })
@@ -35,8 +36,9 @@ function MyTopics() {
   useEffect( () => {
     async function fetchData() {
       try {
+        const response = await axios.get('https://lexaviva-backend.vercel.app/words/topics');
         // const response = await axios.get('http://127.0.0.1:5050/words/topics');
-        const response = await axios.get('https://lexaviva-backend.onrender.com/words/topics');
+        // const response = await axios.get('https://lexaviva-backend.onrender.com/words/topics');
 
         setFetchedTopics(response.data);
       } catch (error) {
