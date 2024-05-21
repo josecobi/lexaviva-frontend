@@ -1,16 +1,48 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom';
+import store from './store';
+import {Provider} from 'react-redux';
 import App from './App.jsx'
-import './index.css'
-import * as bootstrap from 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import './index.css';
+import PrivateRoute from './components/PrivateRoute';
+import Home from './screens/Home';
+import Study from './screens/Study';
+import About from './screens/About';
+import MyTopics from './screens/MyTopics';
+import Login from './screens/Login';
+import Register from './screens/Register';
+import Dashboard from './screens/Dashboard';
+import Profile from './screens/Profile';
 
-// Import BrowserRouter and rename it to Router
-import { BrowserRouter as Router } from "react-router-dom";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />}>
+      <Route index={true} path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/logout" element={<Login />} />
+      
+      {/* This is a protected route that can only be accessed by authenticated users */}
+      <Route path='' element={<PrivateRoute />} >
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/study" element={<Study />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/mytopics" element={<MyTopics />} />
+      </Route>
+    </Route>
+  )
+
+)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <Provider store={store}>
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>,
+    <RouterProvider router={ router } />
+    
+  </React.StrictMode>
+  </Provider>
 )

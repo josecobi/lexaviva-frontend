@@ -4,26 +4,29 @@ import axios from 'axios';
 
 // This component is used to display the words in the table
 function Word({document, updateData, fetchedData}) {
+  const {user_id} = document;
   return (
     <>
-      <form data-bs-theme="dark" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData)}className="row">   
+
+      <form data-bs-theme="dark" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData, user_id)}className="row">   
                 <hr className="mt-2"/>            
-                <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
                 <div className="col">
-                <input name="topic" className="form-control" type="text" defaultValue={document.topic}></input>
+                    <input name="topic" className="form-control" type="text" required defaultValue={document.topic}></input>
                 </div>
                 <div className="col">
                     <input name="english_word" className="form-control" type="text" required defaultValue={document.english_word}></input>
                 </div>
                 <div className="col">
                     <input name="word" className="form-control" type="text" defaultValue={document.word}></input>
-                </div>
+                </div>               
                 <div className="col">
                     <img className="thumbnail" src={document.imgUrl}></img>
                 </div>
                 <div className="col">
                     <input name="imgUrl" className="form-control" type="text" defaultValue={document.imgUrl}></input>
                 </div>
+                <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
+                
                 <div className="col">
                     <input name="attribution" className="form-control" type="text" defaultValue={document.attribution}></input>
                 </div>
@@ -38,7 +41,7 @@ function Word({document, updateData, fetchedData}) {
     </>
   )
   // function used to update the word
-  async function handleSaveChanges(event, updateData, fetchedData) {
+  async function handleSaveChanges(event, updateData, fetchedData, user_id) {
     event.preventDefault();
       
       try{
@@ -49,14 +52,15 @@ function Word({document, updateData, fetchedData}) {
           attribution: event.target.attribution.value,
           english_word: event.target.english_word.value,
           topic: event.target.topic.value,
+          user_id: user_id
 
       }
       console.log("event id:", event.target.id.value);
       console.log("save this data:", formdata);
         // update the word
-        // const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
+         const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
         // const response = await axios.put(`https://lexaviva-backend.vercel.app/words/update/${event.target.id.value}`, formdata);
-        const response = await axios.put(`https://lexaviva-backend.onrender.com/words/update/${event.target.id.value}`, formdata);
+        //const response = await axios.put(`https://lexaviva-backend.onrender.com/words/update/${event.target.id.value}`, formdata);
         // log the updated word
         console.log("response data should be the updated word: ", response.data);
         console.log("fetched data inside handleSaveChanges:", fetchedData)
@@ -86,7 +90,9 @@ function Word({document, updateData, fetchedData}) {
         return;
       }
       else {
-        await axios.delete(`https://lexaviva-backend.onrender.com/words/delete/${event.target.value}`);
+        await axios.delete(`http://localhost:5050/words/delete/${event.target.value}`);
+
+        //await axios.delete(`https://lexaviva-backend.onrender.com/words/delete/${event.target.value}`);
         // await axios.delete(`https://lexaviva-backend.vercel.app/words/delete/${event.target.value}`);
   
         // lift up the state so the word is removed from the list 

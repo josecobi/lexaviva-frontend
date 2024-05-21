@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
 import axios from 'axios';
-import Spinner from '../../Spinner';
+import Loader from '../../Loader';
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 
 function SelectTopic() {
@@ -10,28 +12,26 @@ function SelectTopic() {
     const [fetchedData, setFetchedData] = useState([]);
     // const [selectedTopic, setSelectedTopic] = useState('option1');
     const [wordIndex, setWordIndex] = useState(0);
-    // State of the button
-    const [buttonIsClicked, setButtonIsClicked] = useState(false);
+    // Check if user is loged in
+    const {userInfo} = useSelector((state) => state = state.auth);
 
     // fetch the topics and reassign the response to the state 
     useEffect(() => {
-        // axios.get('https://lexaviva-backend.vercel.app/words/topics')
-        // axios.get('http://127.0.0.1:5050/words/topics')
-        axios.get('https://lexaviva-backend.onrender.com/words/topics')
+        // axios.get(`https://lexaviva-backend.vercel.app/words/topics?user_id=${userInfo._id}`)
+        axios.get(`http://127.0.0.1:5050/words/topics?user_id=${userInfo._id}`)
+        //axios.get(`https://lexaviva-backend.onrender.com/words/topics?user_id=${userInfo._id}`)
             .then(response => setFetchedTopics(response.data))
             .catch(error => console.error("Error:", error.message));
-    }, []);//use empty dependency array to run just once
+    }, [userInfo]);
 
     // handle event when submit button is clicked
-    const handleSubmit = async (e) => {
+    const handleChange = async (e) => {
         //counter for the words to display in the card
         setWordIndex(0);
         e.preventDefault();
-        const selectedTopic = e.target.elements.topic.value;
-        // await axios.post('https://lexaviva-backend.vercel.app/words/bytopic', { selectedTopic: selectedTopic })
-        // await axios.post('http://127.0.0.1:5050/words/bytopic', { selectedTopic: selectedTopic })
-            await axios.post('https://lexaviva-backend.onrender.com/words/bytopic', {
-            selectedTopic: selectedTopic})
+        // await axios.get(`https://lexaviva-backend.vercel.app/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
+        await axios.get(`http://127.0.0.1:5050/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
+            // await axios.get(`https://lexaviva-backend.onrender.com/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
         // reasign the value 
         .then(response => {
             setFetchedData(response.data);
@@ -44,9 +44,9 @@ function SelectTopic() {
             <div className="row justify-content-center mt-2">
                 <div className="col-4 dropdown">
                     {// show the spinner while the data is being fetched
-                        fetchedTopics.length === 0 ? <Spinner /> :
-                            <form onSubmit={handleSubmit}>
-                                    <select className="form-select select mb-2"  aria-label="Select Topics" name="topic" defaultValue="option1">
+                        fetchedTopics.length === 0 ? <Loader /> :
+                            <form >
+                                    <select onChange={handleChange} className="form-select select mb-2"  aria-label="Select Topics" name="topic" defaultValue="option1">
                                         <option className='topic-option' value="option1" disabled>Select a topic</option>
                                         {fetchedTopics.map((topic, index) => (
                                             <option className='topic-option' value={topic} key={index}>{topic}</option>
@@ -54,7 +54,6 @@ function SelectTopic() {
                                     </select>
 
                                 <br />
-                                <button className="btn btn-success" type="submit">Start Learning</button>
                             </form>}
                 </div>
             </div>
@@ -74,8 +73,8 @@ function SelectTopic() {
                     />
                  
                     {/* Use buttons to change the state of the wordIndex to render previous or next images */}
-                    <button className="btn btn-dark d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex - 1)}>Previous Word</button>
-                    <button className="btn btn-dark d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex + 1)}>Next Word</button>                    
+                    <button className="btn btn-light d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex - 1)}>Previous Word</button>
+                    <button className="btn btn-light d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex + 1)}>Next Word</button>                    
                 </div>
             )}
         </div>
@@ -83,3 +82,7 @@ function SelectTopic() {
 }
 
 export default SelectTopic;
+
+SelectTopic.propTypes = {
+    user_id: PropTypes.string
+}

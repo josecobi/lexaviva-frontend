@@ -9,12 +9,12 @@ function Card({word, imgUrl, attribution, english_word}) {
       <div className="flip-card container mt-2 mb-3" >
           <div className="flip-card-inner">
           <div className="flip-card-front p-2 d-flex justify-content-center align-items-center">
-  <h3 className="align-self-center">{english_word}</h3>                  
+  <h1 className="align-self-center">{english_word}</h1>                  
             </div>
-            <div className="flip-card-back">
-              <h3>{word}</h3>
-              <img src={imgUrl} alt="vocab-illustration" style={{"width": "300px", "height": "300px"}} />
-              <figcaption className="figure-caption ">{attribution}.</figcaption>
+            <div className="flip-card-back">           
+              <img className="card-image" src={imgUrl} alt="vocab-illustration"/>
+              <h2>{word}</h2>
+              <figcaption className="figure-caption">{attribution}.</figcaption>
             </div>
           </div>
       </div>
