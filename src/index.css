@@ -4,8 +4,9 @@ body {
   background-image: var(--bs-gradient);
   color: rgb(255, 255, 255);
   min-height: 100vh;
+  min-width:max-content;
+  font-family: 'Roboto', sans-serif;
 } 
-
 
 .hero-image {
   display: grid;
@@ -20,14 +21,16 @@ body {
   position: relative;
 }
 
+.hero-text{
+  color:black;
+}
+
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
   background-color: transparent;
   width: 20rem;
   height: 20rem;
-
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  
+  perspective: 1000px;
 }
 
 /* This container is needed to position the front and back side */
@@ -38,6 +41,7 @@ body {
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -53,30 +57,35 @@ body {
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
   border-radius: 15px;
-
 }
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
   padding-top: 2rem;
-  background-color: rgb(18, 18, 60);
+  background-color: rgb(28, 149, 9);
   background-image: var(--bs-gradient-);
-  color: rgb(255, 255, 255)
-
-
+  color: rgb(255, 255, 255);
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color:rgb(24, 24, 66);
+  padding-top: 2rem;
+  background-color:rgb(209, 209, 210);
   background-image: var(--bs-gradient);
-  color:rgb(255, 255, 255);
+  color: rgb(18, 18, 60);
   transform: rotateY(180deg);
-  
-
 }
 
+.card-image{
+  border-radius: 15px;
+  width: 300px;
+  height: 300px
+  }
 
+.figure-caption{
+    font-size: 0.5rem;
+}
+  
 .thumbnail {
   width: 90%;
   height: 90%;
@@ -92,8 +101,6 @@ input {
   border-color: rgb(203, 203, 203);
 }
 
-
-
 .form-control {
   background-color: rgb(203, 203, 203);
   background-image: var(--bs-gradient);
@@ -108,29 +115,16 @@ input {
 
 .select {
   background-color: rgb(228, 228, 228)
-  
 }
 
-.btn-dark {
-  background-color: rgb(18, 18, 60);
-
-  border-color: rgb(18, 18, 60);
-}
-
-.bg-light {
-  --bs-bg-opacity: 0.5 !important;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
-}
-
-
-
-/* .form-select {
-  background-color: rgb(233, 231, 231);
+.btn-light {
+  background-color: rgb(203, 203, 203);
   background-image: var(--bs-gradient);
   color: black;
-  border-color: rgb(203, 203, 203);
-} */
+}
 
-
-
-/* @import "bootstrap/scss/bootstrap"; */
+.btn-light:hover {
+  background-color:   rgb(142, 142, 142);
+  background-image: var(--bs-gradient);
+  color: black
+}
