@@ -21,7 +21,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<Home />} />
-      <Route path="/study" element={<Study />} />
       <Route path="/about" element={<About />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
@@ -30,6 +29,7 @@ const router = createBrowserRouter(
       {/* This is a protected route that can only be accessed by authenticated users */}
       <Route path='' element={<PrivateRoute />} >
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/study" element={<Study />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/mytopics" element={<MyTopics />} />
       </Route>
