@@ -9,8 +9,8 @@ function Dasboard() {
               <LinkContainer to='/study'>
               <Nav.Link>Study</Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/about'>
-              <Nav.Link>About</Nav.Link>
+              <LinkContainer to='/profile'>
+              <Nav.Link>Profile</Nav.Link>
               </LinkContainer>
               <LinkContainer to='/mytopics'>
               <Nav.Link>My Topics</Nav.Link>
