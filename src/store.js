@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit'; 
 import authReducer from './slices/authSlice';  
 import { apiSlice } from './slices/apiSlice';
-import topicsSlice from './slices/topicsSlice';
+// import topicsSlice from './slices/topicsSlice';
 
 // Create a store using the configureStore function from Redux Toolkit
 const store = configureStore({
@@ -10,7 +10,7 @@ const store = configureStore({
         // Add the authReducer to the store which will be used to manage the user authentication state
         auth: authReducer,
         // Add the topicsSlice reducer to the store to manage the topics state
-        topics: topicsSlice,
+        // topics: topicsSlice,
         // Add the apiSlice reducer to the store to manage the API state. Put in square brackets to access the key from the apiSlice object
         [apiSlice.reducerPath]: apiSlice.reducer,
     },
