@@ -29,9 +29,9 @@ function MyTopics() {
     console.log("clicked: ", e.target.value);
     setSelectedTopic(e.target.value);
     
-    // axios.get('https://lexaviva-backend.vercel.app/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
-     axios.get(`http://127.0.0.1:5050/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
-    // axios.get('https://lexaviva-backend.onrender.com/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
+    axios.get(`https://lexaviva-backend.vercel.app/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
+    //  axios.get(`http://127.0.0.1:5050/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
+    // axios.get(`https://lexaviva-backend.onrender.com/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
       .then(response => {
         setFetchedData(response.data)
       })
