@@ -1,6 +1,6 @@
 import { apiSlice } from "./apiSlice";
 // Define the base URL for the users API
-const USERS_URL = "http://127.0.0.1:5050/api/users";
+const USERS_URL = "https://lexaviva.vercel.app/api/users";
 
 export const usersApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
