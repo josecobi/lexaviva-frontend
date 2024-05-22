@@ -1,10 +1,12 @@
 import propTypes from 'prop-types';
-import '../../index.css';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 // This component is used to display the words in the table
 function Word({document, updateData, fetchedData}) {
-  const {user_id} = document;
+  const {userInfo} = useSelector((state) => state.auth)
+  const user_id = userInfo._id
+  const altText = `image of : ${document.english_word}`
   return (
     <>
 
@@ -20,7 +22,7 @@ function Word({document, updateData, fetchedData}) {
                     <input name="word" className="form-control" type="text" defaultValue={document.word}></input>
                 </div>               
                 <div className="col">
-                    <img className="thumbnail" src={document.imgUrl}></img>
+                    <img className="thumbnail" src={document.imgUrl} alt={altText}></img>
                 </div>
                 <div className="col">
                     <input name="imgUrl" className="form-control" type="text" defaultValue={document.imgUrl}></input>
