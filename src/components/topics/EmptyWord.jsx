@@ -1,13 +1,16 @@
 import propTypes from 'prop-types';
 import '../../index.css';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 // Component to add a new word
 function EmptyWord({document, updateData, fetchedData}) {
+  const {userInfo} = useSelector((state) => state.auth)
+  const user_id = userInfo._id
 
   return (
     <div>
-      <form data-bs-theme="dark" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData)} className="row needs-validation" noValidate>   
+      <form data-bs-theme="dark" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData, user_id)} className="row needs-validation" noValidate>   
                 <hr className="mt-2"/>            
                 <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
                 <div className="col">
@@ -48,12 +51,13 @@ function EmptyWord({document, updateData, fetchedData}) {
           attribution: event.target.attribution.value,
           english_word: event.target.english_word.value,
           topic: event.target.topic.value,
+          user_id: user_id,
       }
 
       console.log("Trying to save this data:", formdata);
       try{
         // Save the new word into the database word
-        const response = await axios.post(`https://lexaviva-backend.onrender.com/words`, formdata);
+        const response = await axios.post(`/api/words`, formdata);
         // log the updated word
         console.log(response.data);
         updateData(prevData => [...prevData, response.data]);
@@ -73,5 +77,6 @@ EmptyWord.propTypes = {
   selectedTopic: propTypes.string.isRequired,
   updateData: propTypes.func.isRequired,
   fetchedData: propTypes.array.isRequired
+
 }
 export default EmptyWord
