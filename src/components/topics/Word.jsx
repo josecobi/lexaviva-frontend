@@ -1,10 +1,13 @@
 import propTypes from 'prop-types';
-import '../../index.css';
+// import '../../index.css';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 // This component is used to display the words in the table
 function Word({document, updateData, fetchedData}) {
-  const {user_id} = document;
+  const {userInfo} = useSelector((state) => state.auth)
+  const user_id = userInfo._id
+  const altText = `image of : ${document.english_word}`
   return (
     <>
 
@@ -20,7 +23,7 @@ function Word({document, updateData, fetchedData}) {
                     <input name="word" className="form-control" type="text" defaultValue={document.word}></input>
                 </div>               
                 <div className="col">
-                    <img className="thumbnail" src={document.imgUrl}></img>
+                    <img className="thumbnail" src={document.imgUrl} alt={altText}></img>
                 </div>
                 <div className="col">
                     <input name="imgUrl" className="form-control" type="text" defaultValue={document.imgUrl}></input>
@@ -58,7 +61,7 @@ function Word({document, updateData, fetchedData}) {
       console.log("event id:", event.target.id.value);
       console.log("save this data:", formdata);
         // update the word
-         const response = await axios.put(`http://localhost:5050/words/update/${event.target.id.value}`, formdata);
+         const response = await axios.put(`api/words/update/${event.target.id.value}`, formdata);
         // const response = await axios.put(`https://lexaviva-backend.vercel.app/words/update/${event.target.id.value}`, formdata);
         //const response = await axios.put(`https://lexaviva-backend.onrender.com/words/update/${event.target.id.value}`, formdata);
         // log the updated word
@@ -90,7 +93,7 @@ function Word({document, updateData, fetchedData}) {
         return;
       }
       else {
-        await axios.delete(`http://localhost:5050/words/delete/${event.target.value}`);
+        await axios.delete(`/api/words/delete/${event.target.value}`);
 
         //await axios.delete(`https://lexaviva-backend.onrender.com/words/delete/${event.target.value}`);
         // await axios.delete(`https://lexaviva-backend.vercel.app/words/delete/${event.target.value}`);

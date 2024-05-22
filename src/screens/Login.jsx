@@ -6,7 +6,7 @@ import FormContainer from "../components/FormContainer";
 import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import toast from 'react-hot-toast';
-import Loader from '../Loader';
+import Loader from '../components/Loader';
 
 const Login = () => {
   const [email, setEmail] = useState("");
