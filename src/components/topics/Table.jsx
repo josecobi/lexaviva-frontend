@@ -1,5 +1,4 @@
 import propTypes from 'prop-types';
-import '../../index.css';
 import Word from './Word';
 import EmptyWord from './EmptyWord';
 

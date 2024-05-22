@@ -1,5 +1,4 @@
 import {Container, Button} from 'react-bootstrap';
-import "../index.css";
 import { LinkContainer } from 'react-router-bootstrap';
 
 

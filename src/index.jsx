@@ -5,7 +5,7 @@ import store from './store';
 import {Provider} from 'react-redux';
 import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import './index.css';
+import './index.css';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './screens/Home';
 import Study from './screens/Study';

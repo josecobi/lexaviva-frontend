@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
 import axios from 'axios';
-import Loader from '../../Loader';
+import Loader from '../Loader';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
@@ -17,9 +17,9 @@ function SelectTopic() {
 
     // fetch the topics and reassign the response to the state 
     useEffect(() => {
-        // axios.get(`https://lexaviva-backend.vercel.app/words/topics?user_id=${userInfo._id}`)
-        axios.get(`http://127.0.0.1:5050/words/topics?user_id=${userInfo._id}`)
-        //axios.get(`https://lexaviva-backend.onrender.com/words/topics?user_id=${userInfo._id}`)
+        // axios.get(`https://lexaviva-backend.vercel.app/api/words/topics?user_id=${userInfo._id}`)
+        axios.get(`/api/words/topics?user_id=${userInfo._id}`)
+        //axios.get(`https://lexaviva-backend.onrender.com/api/words/topics?user_id=${userInfo._id}`)
             .then(response => setFetchedTopics(response.data))
             .catch(error => console.error("Error:", error.message));
     }, [userInfo]);
@@ -29,9 +29,9 @@ function SelectTopic() {
         //counter for the words to display in the card
         setWordIndex(0);
         e.preventDefault();
-        // await axios.get(`https://lexaviva-backend.vercel.app/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
-        await axios.get(`http://127.0.0.1:5050/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
-            // await axios.get(`https://lexaviva-backend.onrender.com/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
+        // await axios.get(`https://lexaviva-backend.vercel.app/api/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
+        await axios.get(`/api/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
+            // await axios.get(`https://lexaviva-backend.onrender.com/api/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
         // reasign the value 
         .then(response => {
             setFetchedData(response.data);

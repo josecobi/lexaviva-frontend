@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import Topic from '../components/topics/Topic';
 import Table from '../components/topics/Table';
 import axios from 'axios';
-import Loader from '../Loader';
+import Loader from '../components/Loader';
 // import PropTypes from 'prop-types';
 import { useSelector } from "react-redux";
+
 
 // // //component to display the topics and terms
 function MyTopics() {
@@ -29,9 +30,9 @@ function MyTopics() {
     console.log("clicked: ", e.target.value);
     setSelectedTopic(e.target.value);
     
-    axios.get(`https://lexaviva-backend.vercel.app/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
-    //  axios.get(`http://127.0.0.1:5050/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
-    // axios.get(`https://lexaviva-backend.onrender.com/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
+    // axios.get(`https://lexaviva-backend.vercel.app/api/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
+     axios.get(`/api/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
+    // axios.get(`https://lexaviva-backend.onrender.com/api/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
       .then(response => {
         setFetchedData(response.data)
       })
@@ -44,9 +45,9 @@ function MyTopics() {
   useEffect( () => {
     async function fetchData() {
       try {
-         const response = await axios.get(`http://127.0.0.1:5050/words/topics?user_id=${userInfo._id}`);
-        // const response = await axios.get(`https://lexaviva-backend.vercel.app/words/topics?user_id=${userInfo._id}`);
-        //const response = await axios.get(`https://lexaviva-backend.onrender.com/words/topics?user_id=${userInfo._id}`);
+         const response = await axios.get(`/api/words/topics?user_id=${userInfo._id}`);
+        // const response = await axios.get(`https://lexaviva-backend.vercel.app/api/words/topics?user_id=${userInfo._id}`);
+        //const response = await axios.get(`https://lexaviva-backend.onrender.com/api/words/topics?user_id=${userInfo._id}`);
 
         setFetchedTopics(response.data);
       } catch (error) {
