@@ -5,7 +5,7 @@ import { Form, Button } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
 import { useUpdateUserMutation } from "../slices/usersApiSlice";
 import toast from 'react-hot-toast';
-import Loader from '../Loader';
+import Loader from '../components/Loader';
 import { setCredentials } from "../slices/authSlice";
 
 
