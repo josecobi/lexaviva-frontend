@@ -1,5 +1,4 @@
 import propTypes from 'prop-types';
-import '../../index.css';
 
 // Card component for displaying the word and its image
 function Card({word, imgUrl, attribution, english_word}) {

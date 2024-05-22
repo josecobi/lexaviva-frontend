@@ -5,7 +5,6 @@ import axios from 'axios';
 import Loader from '../components/Loader';
 // import PropTypes from 'prop-types';
 import { useSelector } from "react-redux";
-import Accordion from 'react-bootstrap/Accordion';
 
 
 // // //component to display the topics and terms
