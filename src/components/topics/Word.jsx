@@ -1,44 +1,57 @@
 import propTypes from 'prop-types';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import Accordion from 'react-bootstrap/Accordion';
+import Form from 'react-bootstrap/Form';
+import {FaTrash, FaTrashAlt} from 'react-icons/fa';
+
+
+
+
 import { useSelector } from 'react-redux';
 
 // This component is used to display the words in the table
 function Word({document, updateData, fetchedData}) {
   const {userInfo} = useSelector((state) => state.auth)
   const user_id = userInfo._id
-  const altText = `image of : ${document.english_word}`
   return (
     <>
+      
+      <form data-bs-theme="light" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData, user_id)} className="row g-3">   
 
-      <form data-bs-theme="dark" onSubmit={(event) => handleSaveChanges(event, updateData, fetchedData, user_id)}className="row">   
-                <hr className="mt-2"/>            
-                <div className="col">
-                    <input name="topic" className="form-control" type="text" required defaultValue={document.topic}></input>
+                <div className="col-md-3 col-sm-4">
+                    <label htmlFor="topic" className="form-label">Topic</label>
+                    <input name="topic"  id="topic" className="form-control" type="text" required defaultValue={document.topic}></input>
                 </div>
-                <div className="col">
-                    <input name="english_word" className="form-control" type="text" required defaultValue={document.english_word}></input>
+                <div className="col-md-3 col-sm-4 col-xsm-4">
+                    <label htmlFor="english_word" className="form-label">English Word</label>
+                    <input name="english_word" id="english_word" className="form-control" type="text" required defaultValue={document.english_word}></input>
                 </div>
-                <div className="col">
-                    <input name="word" className="form-control" type="text" defaultValue={document.word}></input>
-                </div>               
-                <div className="col">
-                    <img className="thumbnail" src={document.imgUrl} alt={altText}></img>
+                <div className="col-md-3 col-sm-4" >
+                <label htmlFor="word" className="form-label">Word</label>
+                    <input name="word" id="word" className="form-control" type="text" defaultValue={document.word}></input>
+                </div>  
+                <div className="col-md-3 col-sm-4">
+                    <label htmlFor="attribution" className="form-label">Attribution</label>
+                    <input name="attribution" id="attribution" className="form-control" type="text" defaultValue={document.attribution}></input>
+                </div>             
+                <div className="col-12 ">
+                    <label htmlFor="imgUrl" className="form-label">Image URL</label>
+                    <input name="imgUrl" id="imgUrl" className="form-control" type="text" defaultValue={document.imgUrl}></input>
                 </div>
-                <div className="col">
-                    <input name="imgUrl" className="form-control" type="text" defaultValue={document.imgUrl}></input>
-                </div>
-                <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
                 
-                <div className="col">
-                    <input name="attribution" className="form-control" type="text" defaultValue={document.attribution}></input>
+                <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>                
+                
+                <div>
+                    <Button onClick={(event) => handleRemoveWord(event, fetchedData, updateData)} value={document._id} className="btn btn-danger"><FaTrashAlt/>Remove</Button>
                 </div>
-                <div className="col">
-                    <button onClick={(event) => handleRemoveWord(event, fetchedData, updateData)} value={document._id} className="btn btn-danger">Remove</button>
-                </div>
-                <div className="col">
+                <div>
                     <button  type="submit" className="btn btn-success">Save</button>
                 </div>
-                
+               
+
             </form>
     </>
   )
