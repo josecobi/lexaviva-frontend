@@ -4,7 +4,6 @@ body {
   background-image: var(--bs-gradient);
   color: rgb(255, 255, 255);
   min-height: 100vh;
-  min-width:max-content;
   font-family: 'Roboto', sans-serif;
 } 
 
@@ -78,8 +77,8 @@ body {
 
 .card-image{
   border-radius: 15px;
-  width: 300px;
-  height: 300px
+  width: 13rem;
+  height: 13rem
   }
 
 .figure-caption{
