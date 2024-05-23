@@ -5,16 +5,30 @@ LexaViva Frontend Overview
 The LexaViva frontend is built using React, a popular JavaScript library for building user interfaces. It leverages React Hooks for state management and utilizes React Router for handling navigation within the application. Below is an overview of how hooks, routes, and component structure are used in the LexaViva frontend.
 
 Find information about LexaViva's backend here: https://github.com/josecobi/lexaviva-backend/blob/main/README.md
-![Screenshot 2024-02-22 233703](https://github.com/josecobi/lexaviva-frontend/assets/58313777/2789ea1b-73ef-4f2d-a2a6-9e0865c9b4a9)
 
-![Screenshot 2024-02-22 233757](https://github.com/josecobi/lexaviva-frontend/assets/58313777/ecc086f0-0dbe-4beb-922a-7e2d6f800bfc)
+Desktop version:
 
-![Screenshot 2024-02-22 233812](https://github.com/josecobi/lexaviva-frontend/assets/58313777/d8f8730f-0be3-4134-ab3c-bc3e3e361acf)
+![Screenshot 2024-05-23 134958](https://github.com/josecobi/lexaviva-frontend/assets/58313777/81cb9669-f66c-4c81-85b1-6a3fc9f608db)
 
-![Screenshot 2024-02-22 233835](https://github.com/josecobi/lexaviva-frontend/assets/58313777/b4f7cac9-527c-4238-9010-46fc9213a44b)
+![Screenshot 2024-05-23 135047](https://github.com/josecobi/lexaviva-frontend/assets/58313777/78e095f9-db83-4b75-b6c8-e0c4d43d35e0)
 
+![Screenshot 2024-05-23 135022](https://github.com/josecobi/lexaviva-frontend/assets/58313777/6fdbbd23-d978-499c-877a-0d3c9b5caa5c)
 
+![Screenshot 2024-05-23 135507](https://github.com/josecobi/lexaviva-frontend/assets/58313777/0a6a3fea-56aa-4212-b064-4f2f76efc2a9)
 
+![Screenshot 2024-05-23 135540](https://github.com/josecobi/lexaviva-frontend/assets/58313777/a2a860fa-8b5b-4fb4-b76a-a345462c88ff)
+
+![Screenshot 2024-05-23 140411](https://github.com/josecobi/lexaviva-frontend/assets/58313777/b39741c5-2cd0-48aa-b5c5-89bf21d8fbfc)
+
+Mobile version:
+
+![Screenshot 2024-05-23 140730](https://github.com/josecobi/lexaviva-frontend/assets/58313777/23d7a3ee-8f27-444e-9b58-361080a4bfa9)
+
+![Screenshot 2024-05-23 140947](https://github.com/josecobi/lexaviva-frontend/assets/58313777/39ff3798-39ab-4ffc-bdce-a5d5beee363a)
+
+![Screenshot 2024-05-23 140803](https://github.com/josecobi/lexaviva-frontend/assets/58313777/83563b73-5207-4803-a8c1-ccc6e04f51ee)
+
+![Screenshot 2024-05-23 140832](https://github.com/josecobi/lexaviva-frontend/assets/58313777/84591e77-dfeb-480f-b789-d82d6948322e)
 
 ## React Hooks Usage
 ### useState Hook
