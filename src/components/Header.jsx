@@ -26,7 +26,7 @@ function Header() {
 
   return (
     <header>
-      <Navbar className="bg-body-primary-subtle border-bottom" variant='dark' expand='lg' collapseOnSelect >
+      <Navbar className="border-bottom" variant='dark' expand='lg' collapseOnSelect >
         <Container>
           <LinkContainer to='/'>
           <Navbar.Brand>LexaViva</Navbar.Brand>
