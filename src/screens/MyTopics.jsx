@@ -60,8 +60,8 @@ function MyTopics() {
   return (
     <div className="container text-center">
         {/** Display the topics and terms when the topic is selected*/}
-        <h4>My Topics</h4>
-        <p>Check and edit your own topics and terms. Edit the name of the topic if you want to create a new topic with that word.</p>
+        <h2>My Topics</h2>
+        <h4>Create, save and edit your topics and words</h4>
         <div className="row justify-content-center mt-4">
             <div className="col-4 dropdown">
                 {// show the Loader while the data is being fetched
@@ -80,8 +80,7 @@ function MyTopics() {
             </div >
         </div>
         {/** Display the table with the words */}
-        <div className="row justify-content-center mt-4">
-        <h4>{selectedTopic}</h4>
+        <div className="row justify-content-center mt-5">
         <Table  fetchedData={fetchedData} selectedTopic={selectedTopic} updateData={updateData}/>
         </div>
     </div>
