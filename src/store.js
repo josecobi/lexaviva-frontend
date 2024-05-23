@@ -16,7 +16,7 @@ const store = configureStore({
     },
     // Add the middleware to the store using the middleware key and the getDefaultMiddleware function from Redux Toolkit. Concatenate the apiSlice.middleware to the default middleware which under the hood uses Redux Thunk to handle async actions.
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
-    devTools: true
+    devTools: false
 })
 
 export default store;
