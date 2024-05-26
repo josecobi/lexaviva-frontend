@@ -15,6 +15,8 @@ import Login from './screens/Login';
 import Register from './screens/Register';
 import Dashboard from './screens/Dashboard';
 import Profile from './screens/Profile';
+import EditTopics from './screens/EditTopics'
+import NewTopic from './screens/NewTopic'
 
 
 const router = createBrowserRouter(
@@ -32,6 +34,8 @@ const router = createBrowserRouter(
         <Route path="/study" element={<Study />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/mytopics" element={<MyTopics />} />
+        <Route path="/editTopics" element={<EditTopics />} />
+        <Route path="/newTopic" element={<NewTopic />} />
       </Route>
     </Route>
   )

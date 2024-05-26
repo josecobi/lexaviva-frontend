@@ -10,16 +10,13 @@ function SelectTopic() {
     //set the state for the select menu and the data that will be fetched(vocab words data)
     const [fetchedTopics, setFetchedTopics] = useState([]);
     const [fetchedData, setFetchedData] = useState([]);
-    // const [selectedTopic, setSelectedTopic] = useState('option1');
     const [wordIndex, setWordIndex] = useState(0);
     // Check if user is loged in
     const {userInfo} = useSelector((state) => state = state.auth);
 
     // fetch the topics and reassign the response to the state 
     useEffect(() => {
-        // axios.get(`https://lexaviva-backend.vercel.app/api/words/topics?user_id=${userInfo._id}`)
         axios.get(`/api/words/topics?user_id=${userInfo._id}`)
-        //axios.get(`https://lexaviva-backend.onrender.com/api/words/topics?user_id=${userInfo._id}`)
             .then(response => setFetchedTopics(response.data))
             .catch(error => console.error("Error:", error.message));
     }, [userInfo]);
@@ -29,9 +26,7 @@ function SelectTopic() {
         //counter for the words to display in the card
         setWordIndex(0);
         e.preventDefault();
-        // await axios.get(`https://lexaviva-backend.vercel.app/api/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
         await axios.get(`/api/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
-            // await axios.get(`https://lexaviva-backend.onrender.com/api/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
         // reasign the value 
         .then(response => {
             setFetchedData(response.data);
