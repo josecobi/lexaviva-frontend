@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Toaster position='bottom-right' toastOptions={{duration : 2000}} />
       <Header />
-      <Container>
+      <Container fluid>
         <Outlet />
       </Container>
 

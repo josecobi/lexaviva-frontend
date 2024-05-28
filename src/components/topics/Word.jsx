@@ -1,11 +1,7 @@
 import propTypes from 'prop-types';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
-import Modal from 'react-bootstrap/Modal';
-import Accordion from 'react-bootstrap/Accordion';
-import Form from 'react-bootstrap/Form';
-import {FaTrash, FaTrashAlt} from 'react-icons/fa';
+import {FaTrashAlt} from 'react-icons/fa';
 
 
 
@@ -74,8 +70,7 @@ function Word({document, updateData, fetchedData}) {
       console.log("save this data:", formdata);
         // update the word
          const response = await axios.put(`api/words/update/${event.target.id.value}`, formdata);
-        // const response = await axios.put(`https://lexaviva-backend.vercel.app/words/update/${event.target.id.value}`, formdata);
-        //const response = await axios.put(`https://lexaviva-backend.onrender.com/words/update/${event.target.id.value}`, formdata);
+        
         // log the updated word
         console.log("response data should be the updated word: ", response.data);
         console.log("fetched data inside handleSaveChanges:", fetchedData)
@@ -106,10 +101,7 @@ function Word({document, updateData, fetchedData}) {
       }
       else {
         await axios.delete(`/api/words/delete/${event.target.value}`);
-
-        //await axios.delete(`https://lexaviva-backend.onrender.com/words/delete/${event.target.value}`);
-        // await axios.delete(`https://lexaviva-backend.vercel.app/words/delete/${event.target.value}`);
-  
+        
         // lift up the state so the word is removed from the list 
         const wordsNotDeleted = fetchedData.filter(word => word && word._id !== event.target.value);
         updateData(wordsNotDeleted);
