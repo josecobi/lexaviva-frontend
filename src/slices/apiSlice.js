@@ -6,7 +6,7 @@ const baseQuery = fetchBaseQuery({baseUrl: '', credentials: 'include'});
 export const apiSlice = createApi({
     baseQuery,
     // Define the tagTypes array and set it to an array with the value 'User'
-    tagTypes: ['User', 'Topic', 'Word'],
+    tagTypes: ['User', 'Word', 'Image'],
     // Define the endpoints object. Builder is a function that takes an object as an argument.
     endpoints: (builder) => ({}),
 });
