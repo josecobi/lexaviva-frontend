@@ -132,3 +132,45 @@ input {
   --bs-bg-opacity: 0.5 !important;
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns:
+      repeat(
+          auto-fit,
+          minmax(100px, 1fr)
+      );
+  gap: 32px;
+  }
+
+.grid > .imgContainer {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 0px 30px #0000;
+    margin-top: 2rem;
+}
+
+.clickableElement {
+  cursor: pointer;
+}
+
+.myTopicsCardImg {
+  border-radius: 15px;
+  height: 13rem;
+}
+
+.myTopicsCol {
+  display: flex;
+}
+.myTopicsRow {
+  flex-wrap: wrap;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+
+
+
