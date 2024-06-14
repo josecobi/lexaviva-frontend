@@ -26,6 +26,7 @@ const Register = () => {
       navigate("/dashboard");
     }
   }, [navigate, userInfo]);
+  // Use the useRegisterMutation hook to register a new user
   const [register, { isLoading }] = useRegisterMutation();
 
   const submitHandler = async (e) => {
@@ -35,7 +36,7 @@ const Register = () => {
       return;
     }else{  
       try{
-        const response = await register({name, email, password}).unwrap();
+        const response = await register({name, email, password}).unwrap(); //unrwap to access successful payload or error message after a mutation
         dispatch(setCredentials({...response}));
         toast.success("Registration successful");
         navigate("/dashboard");
@@ -80,4 +81,4 @@ const Register = () => {
 
 }
   
-  export default Register;
+export default Register;
