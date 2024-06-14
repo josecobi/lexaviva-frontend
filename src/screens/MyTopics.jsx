@@ -13,7 +13,7 @@ const MyTopics = () => {
         <Col xs={12} md={4} className="myTopicsCol ">
             <LinkContainer to="/EditTopics" className="clickableElement">
                 <Card className="myTopicCards p-2">
-                    <Card.Img variant="top" src="src\assets\editable.svg" className="myTopicsCardImg"/>
+                    <Card.Img variant="top" src="/assets/editable.svg" className="myTopicsCardImg"/>
                     <Card.Body>
                     <Card.Title>Edit Topics</Card.Title>
                     <Card.Text>
@@ -26,7 +26,7 @@ const MyTopics = () => {
         <Col xs={12} md={4} className="myTopicsCol">      
             <LinkContainer to="/NewTopic" className="clickableElement">
             <Card className="myTopicCards p-2">
-                <Card.Img variant="top" src="src/assets/create.svg" className="myTopicsCardImg" />
+                <Card.Img variant="top" src="/assets/create.svg" className="myTopicsCardImg" />
                 <Card.Body>
                 <Card.Title>Create New Topic</Card.Title>
                 <Card.Text>
