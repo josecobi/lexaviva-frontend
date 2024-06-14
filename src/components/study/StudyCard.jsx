@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 
-// Card component for displaying the word and its image
-function Card({word, imgUrl, attribution, english_word}) {
+// StudyCard component for displaying the word and its image
+function StudyCard({word, imgUrl, attribution, english_word}) {
   console.log("word, img, attr, english word: ", word, imgUrl, attribution, english_word);
   const altText = `Image of: ${english_word}`;
   return (
@@ -19,11 +19,11 @@ function Card({word, imgUrl, attribution, english_word}) {
       </div>
 )}
 
-Card.propTypes = {
+StudyCard.propTypes = {
   word: propTypes.string.isRequired,
   imgUrl: propTypes.string.isRequired,
   attribution: propTypes.string.isRequired,
   english_word: propTypes.string.isRequired,
 }
 
-export default Card;
+export default StudyCard;
