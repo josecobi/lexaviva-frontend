@@ -4,24 +4,31 @@ import Table from '../components/topics/Table';
 import axios from 'axios';
 import Loader from '../components/Loader';
 // import PropTypes from 'prop-types';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { deSelectIllustration } from '../slices/illustrationSlice';
+import { setTopic } from '../slices/topicSlice';
+
 
 
 // // //component to display the topics and terms
 function EditTopics() {
+const { selectedTopic } = useSelector((state) => state.topic);
   const {userInfo} = useSelector((state) => state.auth);
   const [fetchedTopics, setFetchedTopics] = useState([]);
   const [fetchedData, setFetchedData] = useState([]);
-  const [selectedTopic, setSelectedTopic] = useState("");
+  
+  const dispatch = useDispatch();
+
 
 
   // handle event when a topic is selected
   const handlechange = (e) => {
     console.log("clicked: ", e.target.value);
-    setSelectedTopic(e.target.value);    
+    dispatch(setTopic(e.target.value));    
      axios.get(`/api/words/bytopic?selectedTopic=${e.target.value}&user_id=${userInfo._id}`)
       .then(response => {
         setFetchedData(response.data)
+        dispatch(deSelectIllustration());
       })
       .catch(error => console.error("Error:", error.message));
   }
