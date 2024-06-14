@@ -1,6 +1,6 @@
 import propTypes from 'prop-types';
 import Word from './Word';
-import EmptyWord from './EmptyWord';
+import NewWord from './NewWord';
 import Accordion from 'react-bootstrap/Accordion';
 
 
@@ -39,7 +39,7 @@ function Table({fetchedData, selectedTopic, setFetchedData}) {
                             </div>                                    
                         </Accordion.Header>
                         <Accordion.Body>
-                            <Word document={document} selectedTopic={selectedTopic} setFetchedData={setFetchedData} fetchedData={fetchedData}/>
+                            <Word wordData={document} selectedTopic={selectedTopic} setFetchedData={setFetchedData} fetchedData={fetchedData}/>
                         </Accordion.Body>
                     </Accordion.Item>        
                 )
@@ -49,7 +49,7 @@ function Table({fetchedData, selectedTopic, setFetchedData}) {
         <Accordion.Header>Add a new word</Accordion.Header>
         <Accordion.Body>
             {/* Add a new word form */}
-            <EmptyWord selectedTopic={selectedTopic} setFetchedData={setFetchedData} fetchedData={fetchedData}/>
+            <NewWord selectedTopic={selectedTopic} setFetchedData={setFetchedData} fetchedData={fetchedData}/>
         </Accordion.Body>
     </Accordion.Item>
     </Accordion>
@@ -58,7 +58,7 @@ function Table({fetchedData, selectedTopic, setFetchedData}) {
 
 Table.propTypes = {
     fetchedData: propTypes.array.isRequired,
-    selectedTopic: propTypes.string.isRequired,
-    updateData: propTypes.func.isRequired,
+    selectedTopic: propTypes.string,
+    setFetchedData: propTypes.func.isRequired,
 }
 export default Table
