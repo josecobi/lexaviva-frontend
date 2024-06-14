@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Card from './Card';
+import StudyCard from './StudyCard';
 import axios from 'axios';
 import Loader from '../Loader';
 import PropTypes from 'prop-types';
@@ -59,7 +59,7 @@ function SelectTopic() {
                 
                 <div className="container">
                     
-                    <Card
+                    <StudyCard
                         word={fetchedData[wordIndex].word}
                         imgUrl={fetchedData[wordIndex].imgUrl}
                         attribution={fetchedData[wordIndex].attribution}
