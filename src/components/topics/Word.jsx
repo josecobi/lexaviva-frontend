@@ -4,10 +4,13 @@ import Button from 'react-bootstrap/Button';
 import { useSelector } from 'react-redux';
 import SearchImages from './SearchImages';
 import { useEffect, useState } from 'react';
+import { deSelectIllustration } from '../../slices/illustrationSlice';
+import { useDispatch } from 'react-redux';
 
 
 // This component is used to display the words in the table
 function Word({wordData, setFetchedData, fetchedData}) {
+  const dispatch = useDispatch();
   const {userInfo} = useSelector((state) => state.auth)
   const user_id = userInfo._id
   const {selectedIllustration} = useSelector((state) => state.illustration);
@@ -88,15 +91,15 @@ const handleInputChange = (e) => {
         const formData = {
           _id: event.target.id.value,
           word: event.target.word.value,
-          imgUrl: selectedIllustration.src,
-          attribution: selectedIllustration.author,
+          imgUrl: selectedIllustration.src || event.target.imgUrl.value,
+          attribution: selectedIllustration.author || event.target.attribution.value,
           english_word: event.target.english_word.value,
           topic: event.target.topic.value,
           user_id: user_id
-      }
+        }
 
-      console.log("event id:", event.target.id.value);
-      console.log("save this data:", formData);
+        console.log("event id:", event.target.id.value);
+        console.log("save this data:", formData);
         // update the word
          const response = await axios.put(`api/words/update/${event.target.id.value}`, formData);
         
@@ -114,6 +117,10 @@ const handleInputChange = (e) => {
 
         // lift up the state so the word is updated in the list
         setFetchedData(newData);
+        // Reset the form
+        event.target.reset();
+        //reset illustration selection
+        dispatch(deSelectIllustration());
       } 
       catch(error){
         console.error("Error:", error.message);
