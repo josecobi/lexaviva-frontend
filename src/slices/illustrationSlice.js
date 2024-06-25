@@ -4,7 +4,9 @@ const initialState = {
     selectedIllustration: {
         src: '',
         author: '',
+        id: ''
     },
+
 };
 
 const illustrationSlice = createSlice({
@@ -12,11 +14,11 @@ const illustrationSlice = createSlice({
     initialState,
     reducers: {
         selectIllustration: (state, action) => {
-            const { src, author } = action.payload;
-            state.selectedIllustration = { src, author };
+            const { src, author, id } = action.payload;
+            state.selectedIllustration = { src, author, id };
         },
         deSelectIllustration: (state) => {
-            state.selectedIllustration = { src: '', author: '' };
+            state.selectedIllustration = { src: '', author: '', id: ''};
         },
     },
 });
