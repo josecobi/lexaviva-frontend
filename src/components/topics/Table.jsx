@@ -2,11 +2,12 @@ import propTypes from 'prop-types';
 import Word from './Word';
 import NewWord from './NewWord';
 import Accordion from 'react-bootstrap/Accordion';
+import { useState } from 'react';
 
 
 function Table({fetchedData, selectedTopic, setFetchedData}) {
 
-   
+    const [activeKey, setActiveKey] = useState(null);
     //if there is no data, return an empty div
     if(fetchedData.length === 0) {
         return <div></div>
@@ -14,8 +15,10 @@ function Table({fetchedData, selectedTopic, setFetchedData}) {
 
    //return the table with the words 
   return (
+    <>
+    <h3>Topic: {selectedTopic}</h3>
     
-    <Accordion >
+    <Accordion activeKey={activeKey} onSelect={(key) => setActiveKey(key)}>
             {console.log("data fetechd in table: ", fetchedData)}
 
             {fetchedData.filter(document => document !== null).map((document) => {
@@ -29,7 +32,7 @@ function Table({fetchedData, selectedTopic, setFetchedData}) {
                                 <img className="thumbnail" src={document.imgUrl} alt={altText}></img>
                             </div>
                             <div className="col">
-                                <p >{document.topic}</p>
+                                <p>{document.topic}</p>
                             </div>
                             <div className="col">
                                 <p>{document.english_word}</p>
@@ -39,7 +42,7 @@ function Table({fetchedData, selectedTopic, setFetchedData}) {
                             </div>                                    
                         </Accordion.Header>
                         <Accordion.Body>
-                            <Word wordData={document} selectedTopic={selectedTopic} setFetchedData={setFetchedData} fetchedData={fetchedData}/>
+                            <Word wordData={document} selectedTopic={selectedTopic} setFetchedData={setFetchedData} fetchedData={fetchedData} activeKey={activeKey}/>
                         </Accordion.Body>
                     </Accordion.Item>        
                 )
@@ -49,10 +52,11 @@ function Table({fetchedData, selectedTopic, setFetchedData}) {
         <Accordion.Header>Add a new word</Accordion.Header>
         <Accordion.Body>
             {/* Add a new word form */}
-            <NewWord selectedTopic={selectedTopic} setFetchedData={setFetchedData} fetchedData={fetchedData}/>
+            <NewWord selectedTopic={selectedTopic} setFetchedData={setFetchedData} fetchedData={fetchedData} activeKey={activeKey}/>
         </Accordion.Body>
     </Accordion.Item>
     </Accordion>
+    </>
   )
 }
 
