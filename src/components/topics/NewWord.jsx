@@ -8,11 +8,12 @@ import { deSelectIllustration } from '../../slices/illustrationSlice';
 
 
 // Component to add a new word
-function NewWord({selectedTopic, setFetchedData, fetchedData}) {
+function NewWord({selectedTopic, setFetchedData, fetchedData, setIsFirstWordSaved, setTopicExists}) {
   const {userInfo} = useSelector((state) => state.auth);
   const user_id = userInfo._id;
   const dispatch = useDispatch();
   const {selectedIllustration} = useSelector((state) => state.illustration);
+  const fallbackImgUrl = './assets/img-thumbnail-fallback.svg';
 
   //create an empty form to add a new word which will be a new document in MongoDB
    //initialize the state for the form document
@@ -36,11 +37,8 @@ function NewWord({selectedTopic, setFetchedData, fetchedData}) {
                 <hr className="mt-2"/>            
                 <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
                 <div className="col-md-2 col-sm-4">
-                  <img className="thumbnail" key={selectedIllustration.src} src={selectedIllustration.src} alt='Illustration thumbnail'></img>
-                </div>
-                <div className="col-md-3 col-sm-4">
-                  <label htmlFor="topic" className="form-label">Topic</label>
-                  <input name="topic" className="form-control" type="text" readOnly disabled defaultValue={document.topic}></input>
+                  <p>Illustration preview</p>
+                  <img className="img-thumbnail" key={selectedIllustration.src} src={selectedIllustration.src || fallbackImgUrl} alt='Illustration thumbnail'></img>
                 </div>
                 
                 <div className="col-md-3 col-sm-4">
@@ -67,10 +65,10 @@ function NewWord({selectedTopic, setFetchedData, fetchedData}) {
     event.preventDefault();
       const formdata = {          
         word: event.target.word.value,
-        imgUrl: event.target.imgUrl.value,
-        attribution: event.target.attribution.value,
+        imgUrl: selectedIllustration.src || fallbackImgUrl,
+        attribution: selectedIllustration.author || "artist",
         english_word: event.target.english_word.value,
-        topic: event.target.topic.value,
+        topic: selectedTopic,
         user_id: user_id,
       }
 
@@ -88,7 +86,8 @@ function NewWord({selectedTopic, setFetchedData, fetchedData}) {
       catch(error){
         console.error("Error:", error.message);
       }
-   
+      setIsFirstWordSaved(true);
+      setTopicExists(true);
   }
 
 }
@@ -97,7 +96,8 @@ NewWord.propTypes = {
   document: propTypes.object,
   selectedTopic: propTypes.string.isRequired,
   setFetchedData: propTypes.func.isRequired,
-  fetchedData: propTypes.array.isRequired
-
+  fetchedData: propTypes.array.isRequired,
+  setIsFirstWordSaved: propTypes.func,
+  setTopicExists: propTypes.func
 }
 export default NewWord;
