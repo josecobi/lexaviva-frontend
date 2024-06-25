@@ -1,11 +1,10 @@
-import {Form, Col, Row, Button, Container} from "react-bootstrap";
-// import axios from "axios";
+import {Form, Col, Row, Button} from "react-bootstrap";
 import { useState, useEffect } from "react";
 import IllustrationGrid from "./IllustrationGrid";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 function SearchImages(){
-    const apiKey = import.meta.env.VITE_FREEPIK_API_KEY;  
     const [searchTerm, setSearchTerm] = useState("");
     const [imgResults, setImgResults] = useState([]);
     const { selectedTopic } = useSelector((state) => state.topic);
@@ -22,27 +21,18 @@ function SearchImages(){
    
     const handleSearch = async (e) => {
             e.preventDefault();
-            const url = `freepik/resources?term=${searchTerm}&filters%5Bcontent_type%5D%5Bvector%5D=1&filters%5Blicense%5D%5Bfreemium%5D=1`;
-            const options = {
-                method: 'GET',
-                headers: {
-                  'x-freepik-api-key': apiKey,
-                  'Accept-Language': 'en-US'
-                }
-              };
-              
-              await fetch(url, options)
-                .then(response => response.json())
-                .then((response) => {setImgResults(response.data); console.log(response.data)})
+            const url = `/api/freepik/resources?searchTerm=${searchTerm}`;
+            await axios.get(url)
+                .then((response) => {setImgResults(response.data)})
                 .catch(err => console.error(err));
     }
 
     return(
         <>
-            <Container>
+     
                 <Form onSubmit={handleSearch}>
-                <Row className="align-items-center justify-content-center mt-5">
-                    <Col sm={4} className="">
+                <Row className="align-items-center justify-content-center mt-2">
+                    <Col sm={6}>
                         <Form.Group className="my-2" controlId="image-search-bar">
                             <Form.Control onChange={(e) => handleChange(e)} name="image-search-bar" type="text" defaultValue=""  placeholder="Search illustrations..."></Form.Control>
                         </Form.Group>
@@ -53,7 +43,7 @@ function SearchImages(){
                 </Row>
                 </Form>
                 <IllustrationGrid imgResults={imgResults} />
-            </Container>
+
         </>
     )
 }
