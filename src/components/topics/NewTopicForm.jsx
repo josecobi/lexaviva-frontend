@@ -5,7 +5,6 @@ export default function NewTopicForm({setNewTopicName}){
 
     return(
         <>
-        <Container>
         <Row className='justify-content-md-center text-center mt-5'>
         <h2>New Topic</h2>
         </Row>
@@ -21,7 +20,7 @@ export default function NewTopicForm({setNewTopicName}){
                     </Form>
                 </Col>
             </Row>
-        </Container>
+    
 
     </>
         
