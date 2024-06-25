@@ -68,8 +68,8 @@ function SelectTopic() {
                     />
                  
                     {/* Use buttons to change the state of the wordIndex to render previous or next images */}
-                    <button className="btn btn-light d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex - 1)}>Previous Word</button>
-                    <button className="btn btn-light d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex + 1)}>Next Word</button>                    
+                    <button className="next-button d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex - 1)}>Previous Word</button>
+                    <button className="previous-button d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex + 1)}>Next Word</button>                    
                 </div>
             )}
         </div>
