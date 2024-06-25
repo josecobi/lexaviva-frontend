@@ -10,13 +10,12 @@ import { setTopic } from '../slices/topicSlice';
 
 
 
-// // //component to display the topics and terms
+//component to display the topics and terms
 function EditTopics() {
 const { selectedTopic } = useSelector((state) => state.topic);
   const {userInfo} = useSelector((state) => state.auth);
   const [fetchedTopics, setFetchedTopics] = useState([]);
   const [fetchedData, setFetchedData] = useState([]);
-  
   const dispatch = useDispatch();
 
 
@@ -52,9 +51,10 @@ const { selectedTopic } = useSelector((state) => state.topic);
         <h2>Edit Topics</h2>
         <h4>Create, save and edit your topics and words</h4>
         <div className="row justify-content-center mt-4">
-            <div className="col-4 dropdown">
-                {// show the Loader while the data is being fetched
-                fetchedTopics.length === 0 ? <Loader /> : <select className="form-select select"  aria-label="Select Topics" onChange={handlechange} name="topic" defaultValue="option1">
+            <div className="col-md-4  col-sm-10 dropdown">
+                {(// show the Loader while the data is being fetched
+                fetchedTopics.length === 0 ? <Loader /> : 
+                <select className="form-select select"  aria-label="Select Topics" onChange={handlechange} name="topic" defaultValue="option1">
                 <option className='topic-option' value="option1" disabled>Select a topic</option>                
 
                 {fetchedTopics.map((topic, index) => { 
@@ -64,7 +64,7 @@ const { selectedTopic } = useSelector((state) => state.topic);
                     
                     ) 
                 })}
-            </select >}
+            </select >)}
                 
             </div >
         </div>
@@ -77,7 +77,3 @@ const { selectedTopic } = useSelector((state) => state.topic);
 }
 
 export default EditTopics;
-
-// MyTopics.propTypes = {
-//   user_id: PropTypes.string
-// }
