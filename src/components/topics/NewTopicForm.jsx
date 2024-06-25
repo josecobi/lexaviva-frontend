@@ -17,7 +17,7 @@ export default function NewTopicForm({setNewTopicName}){
                         <Form.Group className="my-2" controlId="topic">
                             <Form.Control name="topic" type="text" defaultValue="" placeholder="Enter topic name"></Form.Control>
                         </Form.Group>  
-                        <Button  type="submit" className="btn btn-success">Save</Button>                 
+                        <Button  type="submit" className="btn btn-success">Create</Button>                 
                     </Form>
                 </Col>
             </Row>
