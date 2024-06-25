@@ -1,33 +1,48 @@
-import ActionCard from "../components/topics/ActionCard"
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import { LinkContainer } from "react-router-bootstrap";
 function Dasboard() {
     return (
        <>
-        <Container fluid className="mt-5">
-            <Row className="justify-content-center g-2">
-                <Col xs={10} md={3} >
-                    <ActionCard 
-                        title='Study' 
-                        text='Master Vocabulary Effortlessly with Our Interactive Cards!' 
-                        action='Study' link='/study' 
-                        icon={["fa-solid", "fa-shapes"]}
-                    />
+        <Container className="mt-5">
+            <Row className="infoCardsRow justify-content-center g-3">
+                <Col xs={10} md={3} className="infoCardsCol">
+                    <LinkContainer to="/study" className="clickableElement">
+                    <Card className="infoCards p-2">
+                        <Card.Img variant="top" src="./assets/study.svg" className="infoCardImg"/>
+                        <Card.Body>
+                            <Card.Title>Study</Card.Title>
+                            <Card.Text>
+                                Master Vocabulary Effortlessly with Our Interactive Cards!
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    </LinkContainer>                  
                 </Col>
-                <Col xs={10} md={3}>
-                    <ActionCard 
-                        title='Profile' 
-                        text='Keep Your Profile Information Current' 
-                        action='Update' link='/profile' 
-                        icon={["fa-solid", "fa-circle-user"]}
-                    />
+                <Col xs={10} md={3} className="infoCardsCol">
+                    <LinkContainer to="/profile" className="clickableElement">
+                    <Card className="infoCards p-2">
+                        <Card.Img variant="top" src="./assets/profile.svg" className="infoCardImg"/>
+                        <Card.Body>
+                            <Card.Title>Profile</Card.Title>
+                            <Card.Text>
+                                View and edit your profile information.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    </LinkContainer>
                 </Col>
-                <Col xs={10} md={3}>
-                    <ActionCard 
-                        title='My Topics' 
-                        text='Create and edit topics adapted to your skill level.' 
-                        action='Create' link='/mytopics' 
-                        icon={["fa-solid", "fa-rectangle-list"]}
-                    />
+                <Col xs={10} md={3} className="infoCardsCol">
+                    <LinkContainer to="/mytopics" className="clickableElement">
+                    <Card className="infoCards p-2">
+                        <Card.Img variant="top" src="./assets/topics.svg" className="infoCardImg"/>
+                        <Card.Body>
+                            <Card.Title>My Topics</Card.Title>
+                            <Card.Text>
+                                Create and edit topics adapted to your skill level.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                      </LinkContainer>  
                 </Col>
             </Row>
         </Container>
