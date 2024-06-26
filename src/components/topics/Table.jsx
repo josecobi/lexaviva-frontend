@@ -32,9 +32,6 @@ function Table({fetchedData, selectedTopic, setFetchedData}) {
                                 <img className="thumbnail" src={document.imgUrl} alt={altText}></img>
                             </div>
                             <div className="col">
-                                <p>{document.topic}</p>
-                            </div>
-                            <div className="col">
                                 <p>{document.english_word}</p>
                             </div>
                             <div className="col">
