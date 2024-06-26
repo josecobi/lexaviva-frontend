@@ -10,11 +10,11 @@ export default defineConfig({
               changeOrigin: true,
               secure: false
       },
-      '/freepik': {
-        target: 'https://api.freepik.com/v1',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/freepik/, '')
-      }
+      // '/freepik': {
+      //   target: 'https://api.freepik.com/v1',
+      //   changeOrigin: true,
+      //   rewrite: (path) => path.replace(/^\/freepik/, '')
+      // }
     }
   },
   plugins: [react()],
