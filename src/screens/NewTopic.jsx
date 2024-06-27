@@ -6,7 +6,7 @@ import Table from "../components/topics/Table";
 import Loader from '../components/Loader';
 import ModalTopicAlreadyExists from '../components/topics/ModalTopicAlreadyExists';
 import NewWord from '../components/topics/NewWord';
-import { Container } from 'react-bootstrap';
+import { Accordion, Container } from 'react-bootstrap';
 import { setTopic } from '../slices/topicSlice';
 
 
@@ -76,9 +76,12 @@ function NewTopic() {
     // handle click event to set the new topic name
     const handleClickNewTopicName = () => {
       setModalShow(false);
-      setNewTopicName("")
+      setNewTopicName("");
+      dispatch(setTopic(null));
+      console.log("Selected topic after click try new name in modal: ", selectedTopic)
       setTopicExists(false);
       setIsFirstWordSaved(false);//so the new word form is displayed
+      setFetchedData([]);
     }
 
   return (
@@ -92,10 +95,21 @@ function NewTopic() {
               {!topicExists && !newTopicName && !isFirstWordSaved && (<NewTopicForm setNewTopicName={setNewTopicName}/>) }
 
               {/* if the user entered a new topic name, if the topic does not exist in the DB, show the new word form */}  
-              {newTopicName && !topicExists && <NewWord selectedTopic={newTopicName} setFetchedData={setFetchedData} fetchedData={fetchedData} setIsFirstWordSaved={setIsFirstWordSaved} setTopicExists={setTopicExists}/> }
-
+              {newTopicName && !topicExists &&
+              (<>
+                <h4 className="mt-5 mb-3">Topic: {newTopicName}</h4>
+                <Accordion>
+                  <Accordion.Item key="0" eventKey="0">
+                    <Accordion.Header>Add a new word</Accordion.Header>
+                    <Accordion.Body>
+                        {/* Add a new word form */}
+                        <NewWord selectedTopic={newTopicName} setFetchedData={setFetchedData} fetchedData={fetchedData} setIsFirstWordSaved={setIsFirstWordSaved} setTopicExists={setTopicExists}/> 
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+              </>) }
               {/* if the topic exists because it already has a word in it, show the table with the words */}
-              {isFirstWordSaved && <Table fetchedData={fetchedData} selectedTopic={selectedTopic} setFetchedData={setFetchedData}/>}
+              {isFirstWordSaved && <Table className="mt-5 mb-3" fetchedData={fetchedData} selectedTopic={selectedTopic} setFetchedData={setFetchedData} setIsFirstWordSaved={setIsFirstWordSaved} setTopicExists ={setTopicExists} />}
             </Container>
         )}
     </>
