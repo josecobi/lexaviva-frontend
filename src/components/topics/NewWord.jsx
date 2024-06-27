@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import SearchImages from "./SearchImages";
 // import UploadImageForm from "./UploadImageForm";
 import { deSelectIllustration } from '../../slices/illustrationSlice';
+import { setTopic } from '../../slices/topicSlice';
+
 
 
 // Component to add a new word
@@ -35,7 +37,7 @@ function NewWord({selectedTopic, setFetchedData, fetchedData, setIsFirstWordSave
     <>
       <form data-bs-theme="light" onSubmit={(event) => handleSaveChanges(event, setFetchedData, fetchedData, user_id)} className="row g-3 needs-validation" noValidate>   
                 <hr className="mt-2"/>            
-                <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input>
+                {/* <input name="id" className="form-control" type="hidden" defaultValue={document._id}></input> */}
                 <div className="col-md-2 col-sm-4">
                   <p>Illustration preview</p>
                   <img className="img-thumbnail" key={selectedIllustration.src} src={selectedIllustration.src || fallbackImgUrl} alt='Illustration thumbnail'></img>
@@ -49,8 +51,8 @@ function NewWord({selectedTopic, setFetchedData, fetchedData, setIsFirstWordSave
                   <label htmlFor="word" className="form-label">Word</label>
                   <input name="word" className="form-control" type="text" defaultValue={document.word} required placeholder="Word"></input>
                 </div>
-                  <input name="attribution" className="form-control" type="hidden" defaultValue={document.attribution} required placeholder="Image by artist"></input>
-                  <input name="imgUrl" className="form-control" type="hidden" defaultValue={document.imgUrl} required placeholder="https://img.freepik.com/free-vector/exmple-image-of-your-choice"></input>
+                  {/* <input name="attribution" className="form-control" type="hidden" defaultValue={document.attribution} required placeholder="Image by artist"></input>
+                  <input name="imgUrl" className="form-control" type="hidden" defaultValue={document.imgUrl} required placeholder="https://img.freepik.com/free-vector/exmple-image-of-your-choice"></input> */}
                   
                 <div className="col-12">
                     <button  type="submit" className="btn btn-success">Save</button>
@@ -82,6 +84,7 @@ function NewWord({selectedTopic, setFetchedData, fetchedData, setIsFirstWordSave
         event.target.reset();
         // Reset the selected illustration
         dispatch(deSelectIllustration());
+        dispatch(setTopic(selectedTopic));
       }
       catch(error){
         console.error("Error:", error.message);
