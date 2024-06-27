@@ -5,7 +5,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import { useState } from 'react';
 
 
-function Table({fetchedData, selectedTopic, setFetchedData}) {
+function Table({fetchedData, selectedTopic, setFetchedData, setIsFirstWordSaved, setTopicExists }) {
 
     const [activeKey, setActiveKey] = useState(null);
     //if there is no data, return an empty div
@@ -49,7 +49,7 @@ function Table({fetchedData, selectedTopic, setFetchedData}) {
         <Accordion.Header>Add a new word</Accordion.Header>
         <Accordion.Body>
             {/* Add a new word form */}
-            <NewWord selectedTopic={selectedTopic} setFetchedData={setFetchedData} fetchedData={fetchedData} activeKey={activeKey}/>
+            <NewWord selectedTopic={selectedTopic} setFetchedData={setFetchedData} fetchedData={fetchedData} activeKey={activeKey} setIsFirstWordSaved={setIsFirstWordSaved} setTopicExists={setTopicExists}/>
         </Accordion.Body>
     </Accordion.Item>
     </Accordion>
@@ -61,5 +61,7 @@ Table.propTypes = {
     fetchedData: propTypes.array.isRequired,
     selectedTopic: propTypes.string,
     setFetchedData: propTypes.func.isRequired,
+    setIsFirstWordSaved: propTypes.func,
+    setTopicExists : propTypes.func,
 }
 export default Table
