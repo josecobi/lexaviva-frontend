@@ -14,7 +14,7 @@ function StudyCard({word, imgUrl, attribution, english_word}) {
                      
               <img className="card-image" src={imgUrl} alt={altText}/>
               <h2>{word}</h2>
-              <figcaption className="figure-caption">By {attribution} from <a href="https://www.freepik.com/" target="_blank" rel="noopener noreferrer">Freepik.com</a>.</figcaption>
+              <figcaption className="figure-caption">{attribution} from <a href="https://www.freepik.com/" target="_blank" rel="noopener noreferrer">Freepik.com</a>.</figcaption>
             </div>
           </div>
       </div>
