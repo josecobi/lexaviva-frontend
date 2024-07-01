@@ -54,13 +54,11 @@ In this mode, changes made to the source code will be reflected immediately, and
 
 This project uses Vite as a build tool. One of the features Vite offers is the ability to set up a proxy to avoid CORS (Cross-Origin Resource Sharing) errors during development.
 
-In the `vite.config.js` file, the `server.proxy` option is used to set up two proxies:
+In the `vite.config.js` file, the `server.proxy` option is used to set up a proxy:
 
-1. `/api`: Any requests that start with `/api` will be proxied to `http://localhost:5050`. This is likely where the backend server is running in development. The `changeOrigin` option is set to `true` to ensure that the host header of the request is changed to the target URL. The `secure` option is set to `false` to allow requests to an insecure server.
+1. `/api`: Any requests that start with `/api` will be proxied to `http://localhost:5050`. This is likely where the backend server is running in development.
 
-2. `/freepik`: Any requests that start with `/freepik` will be proxied to `https://api.freepik.com/v1`. This could be an external API that the app is using. The `rewrite` option is a function that removes the `/freepik` prefix from the request path before it's sent to the target.
-
-By setting up these proxies, the frontend app can make requests to `/api` and `/freepik` as if they're on the same domain, avoiding CORS errors.
+By setting up this proxy, the frontend app can make requests to `/api` as if they're on the same domain, avoiding CORS errors.
 
 ### Production Mode
 
