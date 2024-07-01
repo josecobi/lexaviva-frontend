@@ -7,10 +7,10 @@ import {Toaster}  from 'react-hot-toast';
 function App() {
   
   return (    
-    <div className="App">
+    <div id="root">
       <Toaster position='bottom-right' toastOptions={{duration : 2000}} />
       <Header />
-      <Container fluid>
+      <Container fluid className="App">
         <Outlet />
       </Container>
 
