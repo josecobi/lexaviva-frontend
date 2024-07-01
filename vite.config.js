@@ -8,13 +8,8 @@ export default defineConfig({
       '/api':{
               target: 'http://localhost:5050',
               changeOrigin: true,
-              secure: false
+              secure: true
       },
-      // '/freepik': {
-      //   target: 'https://api.freepik.com/v1',
-      //   changeOrigin: true,
-      //   rewrite: (path) => path.replace(/^\/freepik/, '')
-      // }
     }
   },
   plugins: [react()],
