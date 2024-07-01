@@ -1,14 +1,14 @@
 function Footer() {
   return (
-    <div className="text-center text-lg-start page-footer mt-5">
+   
       
-    <div className="text-center p-2 border-top" data-bs-theme="dark">
+    <div className="page-footer">
      <span>Jose Lopez (CobiDev) © 2024 Copyright: </span>
-      <a className="text-body" href="https://github.com/josecobi">https://github.com/josecobi</a>
+      <a href="https://github.com/josecobi">https://github.com/josecobi</a>
     </div>
    
-  </div>
+
   )
 }
 
-export default Footer
+export default Footer;
