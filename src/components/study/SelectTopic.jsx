@@ -35,13 +35,13 @@ function SelectTopic() {
     }
 
     return (
-        <div className="mt-3 container text-center">
-            <div className="row justify-content-center mt-2">
+        <div className="mt-2 container text-center">
+            <div className="row justify-content-center mt-1">
                 <div className="col-4 dropdown">
                     {// show the spinner while the data is being fetched
                         fetchedTopics.length === 0 ? <Loader /> :
                             <form >
-                                    <select onChange={handleChange} className="form-select select mb-2"  aria-label="Select Topics" name="topic" defaultValue="option1">
+                                    <select onChange={handleChange} className="form-select select mb-1"  aria-label="Select Topics" name="topic" defaultValue="option1">
                                         <option className='topic-option' value="option1" disabled>Select a topic</option>
                                         {fetchedTopics.map((topic, index) => (
                                             <option className='topic-option' value={topic} key={index}>{topic}</option>
@@ -68,8 +68,8 @@ function SelectTopic() {
                     />
                  
                     {/* Use buttons to change the state of the wordIndex to render previous or next images */}
-                    <button className="next-button d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex - 1)}>Previous Word</button>
-                    <button className="previous-button d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex + 1)}>Next Word</button>                    
+                    <button className="next-button d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex - 1)}>Previous</button>
+                    <button className="previous-button d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex + 1)}>Next</button>                    
                 </div>
             )}
         </div>
