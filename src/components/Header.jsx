@@ -1,4 +1,4 @@
-import { Nav, Navbar, Container, Badge } from 'react-bootstrap';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useSelector, useDispatch } from 'react-redux';
 import {FaSignInAlt, FaSignOutAlt} from 'react-icons/fa';
@@ -29,7 +29,15 @@ function Header() {
       <Navbar className="border-bottom" variant='dark' expand='lg' collapseOnSelect >
         <Container>
           <LinkContainer to='/'>
-          <Navbar.Brand>LexaViva</Navbar.Brand>
+          <Navbar.Brand>
+          <img
+              alt=""
+              src="/assets/brand.svg"
+              width="120"
+              height="30"
+              className="d-inline-block align-top"
+            />
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
