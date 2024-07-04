@@ -7,6 +7,7 @@ import Loader from '../components/Loader';
 import { useSelector, useDispatch } from "react-redux";
 import { deSelectIllustration } from '../slices/illustrationSlice';
 import { setTopic } from '../slices/topicSlice';
+import {Container} from "react-bootstrap";
 
 
 
@@ -46,10 +47,9 @@ const { selectedTopic } = useSelector((state) => state.topic);
   }, [userInfo._id])
 
   return (
-    <div className="container text-center">
+    <Container className="text-center screen-container mt-3 p-2">
         {/** Display the topics and terms when the topic is selected*/}
-        <h2>Edit Topics</h2>
-        <h4>Create, save and edit your topics and words</h4>
+        <p className="pages-title">Edit Topics</p>
         <div className="row justify-content-center mt-4">
             <div className="col-md-4  col-sm-10 dropdown">
                 {(// show the Loader while the data is being fetched
@@ -69,10 +69,10 @@ const { selectedTopic } = useSelector((state) => state.topic);
             </div >
         </div>
         {/** Display the table with the words */}
-        <div className="row justify-content-center mt-5">
+        <div className="row justify-content-center mt-3">
         <Table  fetchedData={fetchedData} selectedTopic={selectedTopic} setFetchedData={setFetchedData}/>
         </div>
-    </div>
+    </Container>
   )
 }
 
