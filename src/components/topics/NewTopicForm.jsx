@@ -1,22 +1,21 @@
 import propTypes from 'prop-types';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 
 export default function NewTopicForm({setNewTopicName}){
 
     return(
         <>
-        <Row className='justify-content-md-center text-center mt-5'>
-        <h2>New Topic</h2>
+        <Row className='justify-content-md-center text-center'>
         </Row>
         
-            <Row className='justify-content-md-center text-center mt-3'>
+            <Row className='justify-content-md-center text-center'>
                 <Col xs={12} md={6} className='card p-4'>
-                    <h4>Topic name</h4>
+                    <p>Topic name</p>
                     <Form onSubmit={displayWordsForm}>  
                         <Form.Group className="my-2" controlId="topic">
                             <Form.Control name="topic" type="text" defaultValue="" placeholder="Enter topic name"></Form.Control>
                         </Form.Group>  
-                        <Button  type="submit" className="btn btn-success">Create</Button>                 
+                        <button  type="submit" className="button-primary">Create</button>                 
                     </Form>
                 </Col>
             </Row>
