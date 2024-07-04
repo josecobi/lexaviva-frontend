@@ -38,7 +38,7 @@ function SearchImages(){
                         </Form.Group>
                         </Col>
                         <Col sm={1} className="my-1">
-                        <Button type="submit" className="btn btn-success">Search</Button>
+                        <button type="submit" className="button-secondary">Search</button>
                     </Col>
                 </Row>
                 </Form>
