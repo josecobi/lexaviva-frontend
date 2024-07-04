@@ -4,7 +4,7 @@ import axios from 'axios';
 import Loader from '../Loader';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-
+import { ArrowLeftIconLight, ArrowRightIconLight } from '../icons/ArrowIcons';
 
 function SelectTopic() {
     //set the state for the select menu and the data that will be fetched(vocab words data)
@@ -37,7 +37,7 @@ function SelectTopic() {
     return (
         <div className="mt-2 container text-center">
             <div className="row justify-content-center mt-1">
-                <div className="col-4 dropdown">
+                <div className="col-md-4  col-sm-10 dropdown">
                     {// show the spinner while the data is being fetched
                         fetchedTopics.length === 0 ? <Loader /> :
                             <form >
@@ -57,19 +57,20 @@ function SelectTopic() {
             
             fetchedData && fetchedData[wordIndex] && (
                 
-                <div className="container">
-                    
-                    <StudyCard
+                <div className="align-items-center justify-content-center no-wrap card-container">
+                    <div className="col-2 mr-0 clickable-element arrow-button" onClick={() => setWordIndex(wordIndex - 1)}>
+                            <ArrowLeftIconLight />
+                        </div>
+                    <StudyCard className="col-8"
                         word={fetchedData[wordIndex].word}
                         imgUrl={fetchedData[wordIndex].imgUrl}
                         attribution={fetchedData[wordIndex].attribution}
                         english_word={fetchedData[wordIndex].english_word}
-                        
                     />
-                 
-                    {/* Use buttons to change the state of the wordIndex to render previous or next images */}
-                    <button className="next-button d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex - 1)}>Previous</button>
-                    <button className="previous-button d-inline-flex align-items-center mx-2" onClick={() => setWordIndex(wordIndex + 1)}>Next</button>                    
+                                     
+                                     <div className="col-2 clickable-element arrow-button" onClick={() => setWordIndex(wordIndex + 1)}>
+                            <ArrowRightIconLight className="arrow-button"/>
+                        </div>                
                 </div>
             )}
         </div>
