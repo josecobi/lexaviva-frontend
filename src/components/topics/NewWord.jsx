@@ -55,7 +55,7 @@ function NewWord({selectedTopic, setFetchedData, fetchedData, setIsFirstWordSave
                   <input name="imgUrl" className="form-control" type="hidden" defaultValue={document.imgUrl} required placeholder="https://img.freepik.com/free-vector/exmple-image-of-your-choice"></input> */}
                   
                 <div className="col-12">
-                    <button  type="submit" className="btn btn-success">Save</button>
+                    <button  type="submit" className="button-primary">Save</button>
                 </div>               
             </form>
       <SearchImages />
