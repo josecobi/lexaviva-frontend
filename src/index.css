@@ -302,29 +302,6 @@ input {
   height: 13rem;
 }
 
-
-
-
-
-.next-button, .previous-button {
-  background-color: #ffffff;
-  color: black;
-  border: none;
-  border-radius: 20px;
-  padding: 0.4rem 0.8rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.next-button:hover, .previous-button:hover {
-  color: #FF5858;
-}
-
-
 .topicModaltext {
   color: black;
 }
