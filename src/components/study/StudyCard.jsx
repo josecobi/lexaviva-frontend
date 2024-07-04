@@ -5,13 +5,12 @@ function StudyCard({word, imgUrl, attribution, english_word}) {
   console.log("word, img, attr, english word: ", word, imgUrl, attribution, english_word);
   const altText = `Image of: ${english_word}`;
   return (
-      <div className="flip-card container mt-1 mb-3" >
+      <div className="flip-card  mt-1" >
           <div className="flip-card-inner">
-          <div className="flip-card-front p-2 d-flex justify-content-center align-items-center">
-  <h1 className="align-self-center">{english_word}</h1>                  
-            </div>
-            <div className="flip-card-back"> 
-                     
+            <div className="flip-card-front p-2 d-flex justify-content-center align-items-center">
+            <h1 className="align-self-center">{english_word}</h1>                  
+          </div>
+          <div className="flip-card-back"> 
               <img className="card-image" src={imgUrl} alt={altText}/>
               <h2>{word}</h2>
               <figcaption className="figure-caption">{attribution} from <a href="https://www.freepik.com/" target="_blank" rel="noopener noreferrer">Freepik.com</a>.</figcaption>
