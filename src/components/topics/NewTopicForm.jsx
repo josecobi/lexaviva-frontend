@@ -1,5 +1,5 @@
 import propTypes from 'prop-types';
-import { Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col, Form } from 'react-bootstrap';
 
 export default function NewTopicForm({setNewTopicName}){
 
