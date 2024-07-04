@@ -87,7 +87,8 @@ function NewTopic() {
   return (
     <>
         {isLoading ? (<Loader />) : (
-            <Container>
+            <Container className=" text-center screen-container p-3">
+              <p className="pages-title">New Topic</p>
               {/* show modal if the topic already exists */}
               {modalShow && (<ModalTopicAlreadyExists topic={selectedTopic} show={modalShow} onHide={handleHide} handleClickNewTopicName={handleClickNewTopicName}/>)}
 
