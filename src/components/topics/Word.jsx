@@ -48,17 +48,14 @@ const handleInputChange = (e) => {
         
         <Col md={10}>
         <Row>
+          <Form.Group as={Col} className="mb-3 col-md-6 col-sm-12">
+          <label htmlFor="word" className="form-label">Term</label>
+              <input name="word" id="word" className="form-control" type="text" value={document.word} onChange={handleInputChange}></input>
+          </Form.Group>
           <Form.Group  className="mb-3 col-md-6 col-sm-12">
-           
-              <label htmlFor="english_word" className="form-label">English Word</label>
+              <label htmlFor="english_word" className="form-label">Meaning</label>
               <Form.Control name="english_word" id="english_word" className="form-control" type="text" required value={document.english_word}
             onChange={handleInputChange}></Form.Control>
-          </Form.Group>
-          
-          
-          <Form.Group as={Col} className="mb-3 col-md-6 col-sm-12">
-          <label htmlFor="word" className="form-label">Word</label>
-              <input name="word" id="word" className="form-control" type="text" value={document.word} onChange={handleInputChange}></input>
           </Form.Group>
               </Row>
              
@@ -73,8 +70,8 @@ const handleInputChange = (e) => {
           
           </Row>
           <Row className="justify-content-center g-2">
-              <Button onClick={(event) => handleRemoveWord(event, fetchedData, setFetchedData)} value={document._id} className="btn btn-danger col-md-2 col-sm-4 me-3">Delete</Button>     
-          <Button  type="submit" className="btn btn-success me-3 col-md-2 col-sm-4">Update</Button>
+              <button onClick={(event) => handleRemoveWord(event, fetchedData, setFetchedData)} value={document._id} className="button-tertiary col-md-2 col-sm-4 me-3">Delete</button>     
+          <button  type="submit" className="button-primary me-3 col-md-2 col-sm-4">Update</button>
           </Row>
 
       </Form>
