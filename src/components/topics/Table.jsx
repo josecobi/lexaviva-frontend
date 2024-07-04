@@ -15,10 +15,8 @@ function Table({fetchedData, selectedTopic, setFetchedData, setIsFirstWordSaved,
 
    //return the table with the words 
   return (
-    <>
-    <h3>Topic: {selectedTopic}</h3>
-    
-    <Accordion activeKey={activeKey} onSelect={(key) => setActiveKey(key)}>
+    <>   
+    <Accordion  activeKey={activeKey} onSelect={(key) => setActiveKey(key)}>
             {console.log("data fetechd in table: ", fetchedData)}
 
             {fetchedData.filter(document => document !== null).map((document) => {
@@ -27,7 +25,7 @@ function Table({fetchedData, selectedTopic, setFetchedData, setIsFirstWordSaved,
                 {/* Map the words */}
                 return (
                     <Accordion.Item key={document._id} eventKey={document._id} >
-                        <Accordion.Header> 
+                        <Accordion.Header className="accordion"> 
                             <div className="col">
                                 <img className="thumbnail" src={document.imgUrl} alt={altText}></img>
                             </div>
