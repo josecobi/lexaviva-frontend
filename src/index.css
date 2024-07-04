@@ -288,14 +288,14 @@ input {
   flex-direction: column;
   height: 100%;
   box-shadow: 0 4px 8px rgba(1, 1, 1, 0.5); 
-  transition: transform 0.2s, box-shadow 0.2s;
+  /* transition: transform 0.2s, box-shadow 0.2s; */
   box-sizing: border-box;
 }
 
-.infoCards:hover {
+/* .infoCards:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(9, 9, 9, 0.5);
-}
+} */
 
 .infoCardImg {
   border-radius: 15px;
