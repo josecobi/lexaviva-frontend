@@ -87,7 +87,7 @@ function NewTopic() {
   return (
     <>
         {isLoading ? (<Loader />) : (
-            <Container className=" text-center screen-container p-3">
+            <Container className=" text-center screen-container p-3 mt-4">
               <p className="pages-title">New Topic</p>
               {/* show modal if the topic already exists */}
               {modalShow && (<ModalTopicAlreadyExists topic={selectedTopic} show={modalShow} onHide={handleHide} handleClickNewTopicName={handleClickNewTopicName}/>)}
@@ -110,7 +110,7 @@ function NewTopic() {
                 </Accordion>
               </>) }
               {/* if the topic exists because it already has a word in it, show the table with the words */}
-              {isFirstWordSaved && <Table className="mt-5 mb-3" fetchedData={fetchedData} selectedTopic={selectedTopic} setFetchedData={setFetchedData} setIsFirstWordSaved={setIsFirstWordSaved} setTopicExists ={setTopicExists} />}
+              {(isFirstWordSaved && <><p className="topic-title">{newTopicName}</p> <Table className="mt-5 mb-3" fetchedData={fetchedData} selectedTopic={selectedTopic} setFetchedData={setFetchedData} setIsFirstWordSaved={setIsFirstWordSaved} setTopicExists ={setTopicExists} /> </>)}
             </Container>
         )}
     </>
