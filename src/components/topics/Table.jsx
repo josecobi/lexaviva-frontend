@@ -30,10 +30,10 @@ function Table({fetchedData, selectedTopic, setFetchedData, setIsFirstWordSaved,
                                 <img className="thumbnail" src={document.imgUrl} alt={altText}></img>
                             </div>
                             <div className="col">
-                                <p>{document.english_word}</p>
+                                <p>{document.word}</p>
                             </div>
                             <div className="col">
-                                <p>{document.word}</p>
+                                <p>{document.english_word}</p>
                             </div>                                    
                         </Accordion.Header>
                         <Accordion.Body>
