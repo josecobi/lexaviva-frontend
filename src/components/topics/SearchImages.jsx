@@ -1,4 +1,4 @@
-import {Form, Col, Row, Button} from "react-bootstrap";
+import {Form, Col, Row} from "react-bootstrap";
 import { useState, useEffect } from "react";
 import IllustrationGrid from "./IllustrationGrid";
 import { useSelector } from "react-redux";
