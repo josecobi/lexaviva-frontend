@@ -98,7 +98,7 @@ function NewTopic() {
               {/* if the user entered a new topic name, if the topic does not exist in the DB, show the new word form */}  
               {newTopicName && !topicExists &&
               (<>
-                <h4 className="mt-5 mb-3">Topic: {newTopicName}</h4>
+                <p className="topic-title">{newTopicName}</p>
                 <Accordion>
                   <Accordion.Item key="0" eventKey="0">
                     <Accordion.Header>Add a new word</Accordion.Header>
@@ -110,7 +110,7 @@ function NewTopic() {
                 </Accordion>
               </>) }
               {/* if the topic exists because it already has a word in it, show the table with the words */}
-              {(isFirstWordSaved && <><p className="topic-title">{newTopicName}</p> <Table className="mt-5 mb-3" fetchedData={fetchedData} selectedTopic={selectedTopic} setFetchedData={setFetchedData} setIsFirstWordSaved={setIsFirstWordSaved} setTopicExists ={setTopicExists} /> </>)}
+              {(isFirstWordSaved && <><p className="topic-title">{selectedTopic}</p> <Table className="mt-5 mb-3" fetchedData={fetchedData} selectedTopic={selectedTopic} setFetchedData={setFetchedData} setIsFirstWordSaved={setIsFirstWordSaved} setTopicExists ={setTopicExists} /> </>)}
             </Container>
         )}
     </>
