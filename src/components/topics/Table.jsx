@@ -26,15 +26,14 @@ function Table({fetchedData, selectedTopic, setFetchedData, setIsFirstWordSaved,
                 return (
                     <Accordion.Item key={document._id} eventKey={document._id} >
                         <Accordion.Header className="accordion"> 
-                            <div className="col">
+                            <div className="col-1">
                                 <img className="thumbnail" src={document.imgUrl} alt={altText}></img>
                             </div>
-                            <div className="col">
-                                <p>{document.word}</p>
-                            </div>
-                            <div className="col">
+                            <div className="col-8 d-flex flex-wrap justify-content-left">
+                                <p>{`${document.word}:`} &nbsp;</p>
                                 <p>{document.english_word}</p>
-                            </div>                                    
+                            </div>
+                                                              
                         </Accordion.Header>
                         <Accordion.Body>
                             <Word wordData={document} selectedTopic={selectedTopic} setFetchedData={setFetchedData} fetchedData={fetchedData} activeKey={activeKey}/>
