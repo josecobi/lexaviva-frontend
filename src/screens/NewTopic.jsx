@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import NewTopicForm from '../components/topics/NewTopicForm'
 import axios from 'axios';
 import Table from "../components/topics/Table";
-import Loader from '../components/Loader';
+import Loader from '../components/global/Loader';
 import ModalTopicAlreadyExists from '../components/topics/ModalTopicAlreadyExists';
 import NewWord from '../components/topics/NewWord';
 import { Accordion, Container } from 'react-bootstrap';

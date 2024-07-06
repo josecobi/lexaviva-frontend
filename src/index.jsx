@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './components/global/PrivateRoute';
 import Home from './screens/Home';
 import Study from './screens/Study';
 import About from './screens/About';

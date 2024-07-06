@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import StudyCard from './StudyCard';
 import axios from 'axios';
-import Loader from '../Loader';
+import Loader from '../global/Loader';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { ArrowLeftIconLight, ArrowRightIconLight } from '../icons/ArrowIcons';

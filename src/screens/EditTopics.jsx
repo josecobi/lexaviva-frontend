@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Topic from '../components/topics/Topic';
 import Table from '../components/topics/Table';
 import axios from 'axios';
-import Loader from '../components/Loader';
+import Loader from '../components/global/Loader';
 // import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from "react-redux";
 import { deSelectIllustration } from '../slices/illustrationSlice';
