@@ -382,3 +382,47 @@ h2 {
   background-color: rgba(255, 88, 88, 0.2); 
   color: #FF4040; 
 }
+
+
+.swiper {
+  width: 66%;
+  height: 50%
+}
+
+.swiper-slide {
+  text-align: left;
+  font-size: 1rem;
+
+  
+  background: #fff;
+  border-radius: 3rem;
+  color: black;
+
+  /* Center slide text vertically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto !important;
+  box-sizing: border-box;
+
+  
+
+ 
+}
+.swiper-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.swiper-title {
+  font-weight: 600;
+  color: #FF5858;
+}
+.swiper-slide img {
+  height: 10rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
