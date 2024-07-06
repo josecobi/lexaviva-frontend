@@ -6,7 +6,6 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 const MyTopics = () => {
     return(
-        // <Container className="mt-5">
         <Row className="g-4 infoCardsRow justify-content-center">
         <Col xs={12} md={4} className="infoCardsCol">
                 <Card className="infoCards p-2">
@@ -45,7 +44,6 @@ const MyTopics = () => {
         </Col>
       
     </Row>
-    // </Container>
     )    
 }
 
