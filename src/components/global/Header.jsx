@@ -3,8 +3,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useSelector, useDispatch } from 'react-redux';
 import {FaSignInAlt, FaSignOutAlt} from 'react-icons/fa';
 import {LinkContainer} from 'react-router-bootstrap';
-import { removeCredentials } from '../slices/authSlice';
-import { useLogoutMutation } from '../slices/usersApiSlice';
+import { removeCredentials } from '../../slices/authSlice';
+import { useLogoutMutation } from '../../slices/usersApiSlice';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
