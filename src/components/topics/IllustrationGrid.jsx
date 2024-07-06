@@ -1,6 +1,6 @@
 import Illustration from './Illustration';
 import propTypes from "prop-types";
-import Loader from '../Loader';
+import Loader from '../global/Loader';
 import {selectIllustration, deSelectIllustration} from '../../slices/illustrationSlice';
 import {useDispatch, useSelector} from 'react-redux';
 
