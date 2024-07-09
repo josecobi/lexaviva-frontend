@@ -1,12 +1,27 @@
 import propTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 
 // StudyCard component for displaying the word and its image
 function StudyCard({word, imgUrl, attribution, english_word}) {
+  const [cardState, setCardState] = useState(false);
+  
+  useEffect(() => {
+    setCardState(false);  // Reset card state when the component re-renders
+}, [word, imgUrl, attribution, english_word]);
+
+  function flipCardOnCLick(){
+    console.log("card clicked");
+    setCardState(prevState => !prevState);
+  }
+
+  let toggleCardClassCheck = cardState ? ' flip-card-active': '';
+
+
   console.log("word, img, attr, english word: ", word, imgUrl, attribution, english_word);
   const altText = `Image of: ${english_word}`;
   return (
-      <div className="flip-card  mt-1" >
-          <div className="flip-card-inner">
+      <div className={`flip-card  mt-1${toggleCardClassCheck}`} onClick={flipCardOnCLick}>
+          <div className={`flip-card-inner${toggleCardClassCheck}`}>
             <div className="flip-card-front p-2 d-flex justify-content-center align-items-center">
             <h1 className="align-self-center">{english_word}</h1>                  
           </div>
@@ -18,6 +33,8 @@ function StudyCard({word, imgUrl, attribution, english_word}) {
           </div>
       </div>
 )}
+
+
 
 StudyCard.propTypes = {
   word: propTypes.string.isRequired,
