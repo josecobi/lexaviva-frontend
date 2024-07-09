@@ -11,6 +11,9 @@ function SelectTopic() {
     const [fetchedTopics, setFetchedTopics] = useState([]);
     const [fetchedData, setFetchedData] = useState([]);
     const [wordIndex, setWordIndex] = useState(0);
+    const [isLastWord, setIsLastWord] = useState(false);
+    const [isFirstWord, setIsFirstWord] = useState(true);
+
     // Check if user is loged in
     const {userInfo} = useSelector((state) => state = state.auth);
 
@@ -34,6 +37,21 @@ function SelectTopic() {
         .catch(error => console.error("Error:", error.message));
     }
 
+    const handleNext = () => {
+        if (wordIndex < fetchedData.length - 1) {
+            setWordIndex(wordIndex + 1);
+        } else {
+            setIsLastWord(true);
+        }
+    }
+
+    const handlePrev = () => {
+        if (wordIndex > 0) {
+            setWordIndex(wordIndex - 1);
+        } else {
+            setIsFirstWord(true);
+        }
+    }
     return (
         <div className="mt-2 container text-center">
             <div className="row justify-content-center mt-1">
@@ -42,7 +60,7 @@ function SelectTopic() {
                         fetchedTopics.length === 0 ? <Loader /> :
                             <form >
                                     <select onChange={handleChange} className="form-select select mb-1"  aria-label="Select Topics" name="topic" defaultValue="option1">
-                                        <option className='topic-option' value="option1" disabled>Select a topic</option>
+                                        <option className='topic-option' value="option1" disabled onClick={console.log("option clicked")}>Select a topic</option>
                                         {fetchedTopics.map((topic, index) => (
                                             <option className='topic-option' value={topic} key={index}>{topic}</option>
                                         ))}
@@ -58,19 +76,20 @@ function SelectTopic() {
             fetchedData && fetchedData[wordIndex] && (
                 
                 <div className="align-items-center justify-content-center no-wrap card-container">
-                    <div className="col-2 mr-0 clickable-element arrow-button" onClick={() => setWordIndex(wordIndex - 1)}>
-                            <ArrowLeftIconLight />
+                     <div className="col-2 mr-0 clickable-element arrow-button" onClick={handlePrev}>
+                     {wordIndex > 0 &&<ArrowLeftIconLight />}
                         </div>
                     <StudyCard className="col-8"
+                        key={wordIndex}
                         word={fetchedData[wordIndex].word}
                         imgUrl={fetchedData[wordIndex].imgUrl}
                         attribution={fetchedData[wordIndex].attribution}
                         english_word={fetchedData[wordIndex].english_word}
                     />
                                      
-                                     <div className="col-2 clickable-element arrow-button" onClick={() => setWordIndex(wordIndex + 1)}>
-                            <ArrowRightIconLight className="arrow-button"/>
-                        </div>                
+                    <div className="col-2 clickable-element arrow-button" onClick={handleNext}>
+                    { wordIndex < fetchedData.length - 1 &&  <ArrowRightIconLight className="arrow-button"/>}
+                        </div>              
                 </div>
             )}
         </div>
