@@ -1,4 +1,3 @@
-import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -12,6 +11,7 @@ const HomeInfoCards = () => {
             slidesPerView={3}
             spaceBetween={10}
             freeMode={true}
+            loop={true}
             autoplay={{
                 delay: 3500,
                 disableOnInteraction: false,
@@ -20,6 +20,11 @@ const HomeInfoCards = () => {
                 clickable: true,
             }}
             breakpoints={{
+                300: {
+                    slidesPerView: 1,
+                    spaceBetween: 2,
+
+                },
                 640: {
                     slidesPerView: 2,
                     spaceBetween: 5,
