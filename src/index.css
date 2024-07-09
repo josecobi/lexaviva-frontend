@@ -107,7 +107,7 @@ body {
   aspect-ratio: 4 / 3;
   height: auto;
   perspective: 1000px;
-
+  cursor: pointer;
 }
 
 /* container to position the front and back side */
@@ -120,8 +120,8 @@ body {
   transform-style: preserve-3d;
 }
 
-
-.flip-card:hover .flip-card-inner {
+/*when the parent container `flip-card` has the class `flip-card-active`, the child `flip-card-inner` rotates */
+.flip-card.flip-card-active .flip-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -279,9 +279,9 @@ input {
 .infoCardsCol {
   display: flex;
   flex-direction: column;
-  flex: 1 1 0; /*flex-grow, flex-shrink, flex-basis */
+
   box-sizing: border-box;
-  max-width: 30%;
+ 
 }
 
 .infoCards {
