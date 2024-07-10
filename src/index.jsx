@@ -15,8 +15,9 @@ import Login from './screens/Login';
 import Register from './screens/Register';
 import Dashboard from './screens/Dashboard';
 import Profile from './screens/Profile';
-import EditTopics from './screens/EditTopics'
-import NewTopic from './screens/NewTopic'
+import EditTopics from './screens/EditTopics';
+import NewTopic from './screens/NewTopic';
+import Demo from './components/study/Demo';
 
 
 const router = createBrowserRouter(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/logout" element={<Login />} />
+      <Route path="/studyDemo" element={<Demo />} />
       
       {/* This is a protected route that can only be accessed by authenticated users */}
       <Route path='' element={<PrivateRoute />} >

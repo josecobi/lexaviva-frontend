@@ -118,6 +118,7 @@ body {
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  user-select: none
 }
 
 /*when the parent container `flip-card` has the class `flip-card-active`, the child `flip-card-inner` rotates */
@@ -183,6 +184,7 @@ body {
 }
 .accordion-button {
   border-top: 1px solid white;
+  
 }
   
 .thumbnail {

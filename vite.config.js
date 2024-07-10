@@ -10,6 +10,11 @@ export default defineConfig({
               changeOrigin: true,
               secure: true
       },
+      '/demo': {
+        target: 'http://localhost:5050',
+        changeOrigin: true,
+        secure: true,
+      },
     }
   },
   plugins: [react()],
