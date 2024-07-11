@@ -14,7 +14,7 @@ Desktop version:
 
 ![Screenshot 2024-07-11 090900](https://github.com/josecobi/lexaviva-frontend/assets/58313777/a09ef7b0-4ec5-4e2b-a513-8a463b98def7)
 
-![Screenshot 2024-07-11 090921](https://github.com/josecobi/lexaviva-frontend/assets/58313777/ac8eda7d-88c0-4667-b1ea-72db0b1808b6)
+![Screenshot 2024-07-11 103134](https://github.com/josecobi/lexaviva-frontend/assets/58313777/03d127dc-d5d4-4a47-a298-0f1c4ce33d3e)
 
 ![Screenshot 2024-07-11 091003](https://github.com/josecobi/lexaviva-frontend/assets/58313777/bd0650b5-9255-47f8-b7bd-6e77b0e78683)
 
