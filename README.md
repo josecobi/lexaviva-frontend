@@ -6,28 +6,48 @@ The LexaViva frontend is built using React, a popular JavaScript library for bui
 
 Desktop version:
 
-![Screenshot 2024-05-23 134958](https://github.com/josecobi/lexaviva-frontend/assets/58313777/81cb9669-f66c-4c81-85b1-6a3fc9f608db)
+![Screenshot 2024-07-11 090815](https://github.com/josecobi/lexaviva-frontend/assets/58313777/1a5bcfa3-3bc9-4a6b-80c6-d822962f1fa5)
 
-![Screenshot 2024-05-23 135047](https://github.com/josecobi/lexaviva-frontend/assets/58313777/78e095f9-db83-4b75-b6c8-e0c4d43d35e0)
+![Screenshot 2024-07-11 090852](https://github.com/josecobi/lexaviva-frontend/assets/58313777/c889c879-2f2f-4718-9f65-cde9534f2731)
 
-![Screenshot 2024-05-23 135022](https://github.com/josecobi/lexaviva-frontend/assets/58313777/6fdbbd23-d978-499c-877a-0d3c9b5caa5c)
+![Screenshot 2024-07-11 090843](https://github.com/josecobi/lexaviva-frontend/assets/58313777/356e144d-1576-40e5-9d31-d7dfa4acd27b)
 
-![Screenshot 2024-05-23 135507](https://github.com/josecobi/lexaviva-frontend/assets/58313777/0a6a3fea-56aa-4212-b064-4f2f76efc2a9)
+![Screenshot 2024-07-11 090900](https://github.com/josecobi/lexaviva-frontend/assets/58313777/a09ef7b0-4ec5-4e2b-a513-8a463b98def7)
 
-![Screenshot 2024-05-23 135540](https://github.com/josecobi/lexaviva-frontend/assets/58313777/a2a860fa-8b5b-4fb4-b76a-a345462c88ff)
+![Screenshot 2024-07-11 090921](https://github.com/josecobi/lexaviva-frontend/assets/58313777/ac8eda7d-88c0-4667-b1ea-72db0b1808b6)
 
-![Screenshot 2024-05-23 140411](https://github.com/josecobi/lexaviva-frontend/assets/58313777/b39741c5-2cd0-48aa-b5c5-89bf21d8fbfc)
+![Screenshot 2024-07-11 091003](https://github.com/josecobi/lexaviva-frontend/assets/58313777/bd0650b5-9255-47f8-b7bd-6e77b0e78683)
+
+![Screenshot 2024-07-11 091011](https://github.com/josecobi/lexaviva-frontend/assets/58313777/cfa194bc-8aeb-4c2a-81e1-1c94bcc30088)
+
+![Screenshot 2024-07-11 091115](https://github.com/josecobi/lexaviva-frontend/assets/58313777/826062b9-5f6f-4473-8655-596ca5796332)
+
+![Screenshot 2024-07-11 091138](https://github.com/josecobi/lexaviva-frontend/assets/58313777/776e3c4e-8c50-4edc-8f4b-0d39c9ce5a73)
+
+![Screenshot 2024-07-11 091212](https://github.com/josecobi/lexaviva-frontend/assets/58313777/a30a3108-484f-4bbb-97a0-5032452111ce)
+
+![Screenshot 2024-07-11 091227](https://github.com/josecobi/lexaviva-frontend/assets/58313777/106d0933-ea12-418f-810b-9f9b2217084f)
+
 
 Mobile version:
 
-![Screenshot 2024-05-23 140730](https://github.com/josecobi/lexaviva-frontend/assets/58313777/23d7a3ee-8f27-444e-9b58-361080a4bfa9)
+![Screenshot 2024-07-11 091627](https://github.com/josecobi/lexaviva-frontend/assets/58313777/128a4b72-0036-4142-a82b-88fa39c220bf)
 
-![Screenshot 2024-05-23 140947](https://github.com/josecobi/lexaviva-frontend/assets/58313777/39ff3798-39ab-4ffc-bdce-a5d5beee363a)
+![Screenshot 2024-07-11 091637](https://github.com/josecobi/lexaviva-frontend/assets/58313777/0c580a9d-dd83-4424-bf55-66e961d0813e)
 
-![Screenshot 2024-05-23 140803](https://github.com/josecobi/lexaviva-frontend/assets/58313777/83563b73-5207-4803-a8c1-ccc6e04f51ee)
+![Screenshot 2024-07-11 091722](https://github.com/josecobi/lexaviva-frontend/assets/58313777/1ed917b5-772b-40dc-953b-828aa8c807f5)
 
-![Screenshot 2024-05-23 140832](https://github.com/josecobi/lexaviva-frontend/assets/58313777/84591e77-dfeb-480f-b789-d82d6948322e)
+![Screenshot 2024-07-11 091739](https://github.com/josecobi/lexaviva-frontend/assets/58313777/3b91830e-0d5a-4db9-a26b-6b33dbf3162c)
 
+![Screenshot 2024-07-11 091759](https://github.com/josecobi/lexaviva-frontend/assets/58313777/1105defe-4fe6-4c45-9012-747042f035aa)
+
+![Screenshot 2024-07-11 091807](https://github.com/josecobi/lexaviva-frontend/assets/58313777/3d6fc1d7-e7e2-45e0-ae84-96e0337dd69c)
+
+![Screenshot 2024-07-11 091817](https://github.com/josecobi/lexaviva-frontend/assets/58313777/d7117179-37f2-4977-bf4f-495ea9bdedc6)
+
+![Screenshot 2024-07-11 091837](https://github.com/josecobi/lexaviva-frontend/assets/58313777/20325b24-a554-47ba-9b14-7f1c512a2f39)
+
+![Screenshot 2024-07-11 091904](https://github.com/josecobi/lexaviva-frontend/assets/58313777/6d2ae2bd-caed-48ee-80c4-b3fca2e53877)
 
 ## Usage
 Before you start:
