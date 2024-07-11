@@ -16,12 +16,7 @@ function Demo() {
 
  
 
-    // fetch the topics and reassign the response to the state 
-    // useEffect(() => {
-    //     axios.get(`/api/words/topics?user_id=${userInfo._id}`)
-    //         .then(response => setFetchedTopics(response.data))
-    //         .catch(error => console.error("Error:", error.message));
-    // }, [userInfo]);
+   
 
     // handle event when submit button is clicked
     const handleChange = async (e) => {
@@ -59,14 +54,10 @@ function Demo() {
             <div className="row justify-content-center mt-1">
                 <div className="col-md-4  col-sm-10 dropdown">
                     {// show the spinner while the data is being fetched
-                        // fetchedTopics.length === 0 ? <Loader /> :
                             <form >
                                     <select onChange={handleChange} className="form-select select mb-1"  aria-label="Select Topics" name="topic" defaultValue="option1">
                                         <option className='topic-option' value="option1" disabled onClick={console.log("option clicked")}>Select a topic</option>
                                         <option className='topic-option' value="Basic actions" onClick={console.log("option clicked")}>Basic actions</option>
-                                        {/* {fetchedTopics.map((topic, index) => (
-                                            <option className='topic-option' value={topic} key={index}>{topic}</option>
-                                        ))} */}
                                     </select>
 
                                 <br />
