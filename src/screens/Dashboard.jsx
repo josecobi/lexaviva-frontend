@@ -3,9 +3,9 @@ import { LinkContainer } from "react-router-bootstrap";
 function Dasboard() {
     return (
        <>
-        <Container className="mt-5">
+        <Container className="mt-5 p-2">
             <Row className="infoCardsRow justify-content-center g-3">
-                <Col xs={10} md={3} className="infoCardsCol">
+                <Col xs={10} md={4} className="infoCardsCol">
                     <Card className="infoCards p-2">
                         <Card.Img variant="top" src="./assets/study.svg" className="infoCardImg"/>
                         <Card.Body>
@@ -23,7 +23,7 @@ function Dasboard() {
                 </Card.Footer>
                     </Card>
                 </Col>
-                <Col xs={10} md={3} className="infoCardsCol">
+                <Col xs={10} md={4} className="infoCardsCol">
                     <Card className="infoCards p-2">
                         <Card.Img variant="top" src="./assets/profile.svg" className="infoCardImg"/>
                         <Card.Body>
@@ -41,7 +41,7 @@ function Dasboard() {
                 </Card.Footer> 
                     </Card>
                 </Col>
-                <Col xs={10} md={3} className="infoCardsCol">
+                <Col xs={10} md={4} className="infoCardsCol">
                     <Card className="infoCards p-2">
                         <Card.Img variant="top" src="./assets/topics.svg" className="infoCardImg"/>
                         <Card.Body>
