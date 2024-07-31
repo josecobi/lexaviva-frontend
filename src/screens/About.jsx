@@ -1,6 +1,6 @@
 function About() {
   return (
-    <div className="about container text-bg-light col-6 rounded p-4 mt-5">
+    <div className="about container text-bg-light col-6 rounded p-4 my-5">
       <h1>About Lexaviva </h1>      
       <hr/>
 

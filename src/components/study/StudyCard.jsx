@@ -23,11 +23,11 @@ function StudyCard({word, imgUrl, attribution, english_word}) {
       <div className={`flip-card  mt-1${toggleCardClassCheck}`} onClick={flipCardOnCLick}>
           <div className={`flip-card-inner${toggleCardClassCheck}`}>
             <div className="flip-card-front p-2 d-flex justify-content-center align-items-center">
-            <h1 className="align-self-center">{english_word}</h1>                  
+            <h1 className="align-self-center notranslate">{english_word}</h1>                  
           </div>
           <div className="flip-card-back"> 
               <img className="card-image" src={imgUrl} alt={altText}/>
-              <h2>{word}</h2>
+              <h2 className='notranslate'>{word}</h2>
               <figcaption className="figure-caption">{attribution} on <a href="https://www.freepik.com/" target="_blank" rel="noopener noreferrer">Freepik.com</a>.</figcaption>
             </div>
           </div>

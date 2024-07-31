@@ -47,11 +47,11 @@ const handleInputChange = (e) => {
               <Row>
                 <Form.Group as={Col} className="mb-3 col-md-6 col-sm-12">
                   <label htmlFor="word" className="form-label">Term</label>
-                  <Form.Control name="word" id="word" className="form-control" type="text" value={document.word} onChange={handleInputChange}></Form.Control>
+                  <Form.Control name="word" id="word" className="form-control notranslate" type="text" value={document.word} onChange={handleInputChange}></Form.Control>
                 </Form.Group>
                 <Form.Group  className="mb-3 col-md-6 col-sm-12">
                     <label htmlFor="english_word" className="form-label">Meaning</label>
-                    <Form.Control name="english_word" id="english_word" className="form-control" type="text" required value={document.english_word}
+                    <Form.Control name="english_word" id="english_word" className="form-control notranslate" type="text" required value={document.english_word}
                   onChange={handleInputChange}></Form.Control>
                 </Form.Group>
               </Row>
