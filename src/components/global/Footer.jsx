@@ -105,7 +105,7 @@ import { FaEnvelope, FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 function Footer() {
   return (
-    <footer className="page-footer smaller-text">
+    <footer className="page-footer smaller-text mt-5">
       <Container>
       <Row className="mx-0 mt-3">
       <Col xs lg="3" className="align-self-center">
