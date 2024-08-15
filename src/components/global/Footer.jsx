@@ -107,7 +107,7 @@ function Footer() {
   return (
     <footer className="page-footer smaller-text mt-5">
       <Container>
-      <Row className="mx-0 mt-3">
+      <Row className="mx-0 mt-3 g-2">
       <Col xs lg="3" className="align-self-center">
            <img
             alt="LexaViva Logo"
@@ -166,7 +166,7 @@ function Footer() {
     <span>Jose Lopez (CobiDev) © 2024</span>
        <a href="mailto:jose.lopez.cobano@gmail.com" className="mx-2 "><FaEnvelope /></a> 
        <a href="https://github.com/josecobi" className="mx-2"><FaGithub /></a> 
-       <a href="https://www.linkedin.com/in/josecobi/" className="mx-2"><FaLinkedin /></a>
+       <a href="https://www.linkedin.com/in/joselopezcobano/" className="mx-2"><FaLinkedin /></a>
        </Col>
        </Row>
        </Container>
