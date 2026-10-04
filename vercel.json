@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://lexaviva.up.railway.app/api/:path*" },
+    { "source": "/demo/:path*", "destination": "https://lexaviva.up.railway.app/demo/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
